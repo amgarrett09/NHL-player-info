@@ -87,11 +87,12 @@ class PlayerList extends React.Component { // eslint-disable-line no-undef
         </select>
 
         {players.map(player => (
-          <p key={player.id}>
+          <span key={player.id}>
+            <br />
             <Link href={`/player?id=${player.id}`}>
               <a>{player.name}</a>
             </Link>
-          </p>
+          </span>
         ))}
       </section>
 
