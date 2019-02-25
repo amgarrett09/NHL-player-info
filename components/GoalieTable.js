@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const GoalieTable = ({ stats }) => (
+const GoalieTable = ({ stats, career }) => (
   <table>
     <thead>
       <tr>
@@ -42,6 +42,23 @@ const GoalieTable = ({ stats }) => (
           <td>{obj.stat.timeOnIce}</td>
         </tr>
       ))}
+      <tr>
+        <td><strong>Career</strong></td>
+        <td />
+        <td>{career.games}</td>
+        <td>{career.gamesStarted}</td>
+        <td>{career.wins}</td>
+        <td>{career.losses}</td>
+        <td>{career.ties}</td>
+        <td>{career.ot}</td>
+        <td>{career.shotsAgainst}</td>
+        <td>{career.goalsAgainst}</td>
+        <td>{career.goalAgainstAverage}</td>
+        <td>{career.saves}</td>
+        <td>{career.savePercentage}</td>
+        <td>{career.shutouts}</td>
+        <td>{career.timeOnIce}</td>
+      </tr>
     </tbody>
   </table>
 );
@@ -50,10 +67,16 @@ GoalieTable.propTypes = {
   stats: PropTypes.arrayOf(PropTypes.shape({
     season: PropTypes.string,
   })),
+  career: PropTypes.shape({
+    stat: PropTypes.shape({
+      timeOnIce: PropTypes.string,
+    }),
+  }),
 };
 
 GoalieTable.defaultProps = {
   stats: [],
+  career: {},
 };
 
 export default GoalieTable;

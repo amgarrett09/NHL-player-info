@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 
 import SeasonStats from '../components/SeasonStats';
+import PlayoffStats from '../components/PlayoffStats';
 
 const Player = ({
   id, name, currentTeam, position, shootsCatches,
@@ -16,6 +17,10 @@ const Player = ({
     <section>
       <h2>Regular Season Stats</h2>
       <SeasonStats id={id} position={position} />
+    </section>
+    <section>
+      <h2>Playoff Stats</h2>
+      <PlayoffStats id={id} position={position} />
     </section>
   </main>
 );

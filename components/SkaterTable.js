@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const SkaterTable = ({ stats }) => (
+const SkaterTable = ({ stats, career }) => (
   <table>
     <thead>
       <tr>
@@ -46,6 +46,25 @@ const SkaterTable = ({ stats }) => (
           <td>{obj.stat.faceOffPct}</td>
         </tr>
       ))}
+      <tr>
+        <td><strong>Career</strong></td>
+        <td />
+        <td>{career.games}</td>
+        <td>{career.goals}</td>
+        <td>{career.assists}</td>
+        <td>{career.points}</td>
+        <td>{career.plusMinus}</td>
+        <td>{career.pim}</td>
+        <td>{career.powerPlayGoals}</td>
+        <td>{career.powerPlayPoints}</td>
+        <td>{career.shortHandedGoals}</td>
+        <td>{career.shortHandedPoints}</td>
+        <td>{career.gameWinningGoals}</td>
+        <td>{career.overTimeGoals}</td>
+        <td>{career.shots}</td>
+        <td>{career.shotPct}</td>
+        <td>{career.faceOffPct}</td>
+      </tr>
     </tbody>
   </table>
 );
@@ -54,10 +73,16 @@ SkaterTable.propTypes = {
   stats: PropTypes.arrayOf(PropTypes.shape({
     season: PropTypes.string,
   })),
+  career: PropTypes.shape({
+    stat: PropTypes.shape({
+      timeOnIce: PropTypes.string,
+    }),
+  }),
 };
 
 SkaterTable.defaultProps = {
   stats: [],
+  career: {},
 };
 
 export default SkaterTable;
