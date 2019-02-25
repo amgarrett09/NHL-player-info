@@ -1,11 +1,24 @@
 import fetch from 'isomorphic-unfetch';
-import SeasonStats from './SeasonStats';
+import PropTypes from 'prop-types';
 
-class PlayoffStats extends SeasonStats {
+import GoalieTable from './GoalieTable';
+import SkaterTable from './SkaterTable';
+
+class PlayoffStats extends React.Component { // eslint-disable-line no-undef
   state = {
     stats: [],
     career: {},
     loaded: false,
+  };
+
+  static propTypes = {
+    id: PropTypes.string,
+    position: PropTypes.string,
+  };
+
+  static defaultProps = {
+    id: '',
+    position: '',
   };
 
   async componentDidMount() {
@@ -43,6 +56,25 @@ class PlayoffStats extends SeasonStats {
         loaded: false,
       });
     }
+  }
+
+  render() {
+    let { position } = this.props;
+    const { stats, career, loaded } = this.state;
+    if (position !== 'Goalie') {
+      position = 'Skater';
+    }
+
+    return (
+      <div>
+        {loaded && position === 'Goalie' && (
+          <GoalieTable stats={stats} career={career} />
+        )}
+        {loaded && position === 'Skater' && (
+          <SkaterTable stats={stats} career={career} />
+        )}
+      </div>
+    );
   }
 }
 
