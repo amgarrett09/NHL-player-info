@@ -2,6 +2,7 @@ import fetch from 'isomorphic-unfetch';
 import PropTypes from 'prop-types';
 
 import GoalieTable from './GoalieTable';
+import SkaterTable from './SkaterTable';
 
 class SeasonStats extends React.Component { // eslint-disable-line no-undef
     state = {
@@ -41,12 +42,16 @@ class SeasonStats extends React.Component { // eslint-disable-line no-undef
     }
 
     render() {
-      const { position } = this.props;
+      let { position } = this.props;
       const { stats, loaded } = this.state;
+      if (position !== 'Goalie') {
+        position = 'Skater';
+      }
+
       return (
         <div>
-          <h2>Regular Season Stats</h2>
           { loaded && position === 'Goalie' && <GoalieTable stats={stats} />}
+          { loaded && position === 'Skater' && <SkaterTable stats={stats} />}
         </div>
       );
     }

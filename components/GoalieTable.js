@@ -23,8 +23,8 @@ const GoalieTable = ({ stats }) => (
     </thead>
 
     <tbody>
-      {stats.map(obj => (
-        <tr key={obj.season + obj.team.name}>
+      {stats.map((obj, i) => (
+        <tr key={obj.season + obj.team.name + i.toString()}>
           <td>{obj.season}</td>
           <td>{obj.team.name}</td>
           <td>{obj.stat.games}</td>
