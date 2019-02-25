@@ -1,17 +1,22 @@
 import fetch from 'isomorphic-unfetch';
 import PropTypes from 'prop-types';
 
+import GoalieTable from './GoalieTable';
+
 class SeasonStats extends React.Component { // eslint-disable-line no-undef
     state = {
       stats: [],
+      loaded: false,
     }
 
     static propTypes = {
       id: PropTypes.string,
+      position: PropTypes.string,
     }
 
     static defaultProps = {
       id: '',
+      position: '',
     }
 
     async componentDidMount() {
@@ -28,6 +33,7 @@ class SeasonStats extends React.Component { // eslint-disable-line no-undef
 
         this.setState({
           stats: nhlStats,
+          loaded: true,
         });
       } catch (err) {
         console.error(err);
@@ -35,7 +41,14 @@ class SeasonStats extends React.Component { // eslint-disable-line no-undef
     }
 
     render() {
-      return <h2>Regular Season Stats</h2>;
+      const { position } = this.props;
+      const { stats, loaded } = this.state;
+      return (
+        <div>
+          <h2>Regular Season Stats</h2>
+          { loaded && position === 'Goalie' && <GoalieTable stats={stats} />}
+        </div>
+      );
     }
 }
 

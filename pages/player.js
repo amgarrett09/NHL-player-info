@@ -14,7 +14,7 @@ const Player = ({
     </section>
 
     <section>
-      <SeasonStats id={id} />
+      <SeasonStats id={id} position={position} />
     </section>
   </main>
 );
