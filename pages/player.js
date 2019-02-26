@@ -15,11 +15,9 @@ const Player = ({
     </section>
 
     <section>
-      <h2>Regular Season Stats</h2>
       <SeasonStats id={id} position={position} />
     </section>
     <section>
-      <h2>Playoff Stats</h2>
       <PlayoffStats id={id} position={position} />
     </section>
   </main>

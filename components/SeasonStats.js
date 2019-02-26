@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-unfetch';
 import PropTypes from 'prop-types';
+import { Spring } from 'react-spring';
 
 import GoalieTable from './GoalieTable';
 import SkaterTable from './SkaterTable';
@@ -67,11 +68,21 @@ class SeasonStats extends React.Component { // eslint-disable-line no-undef
 
     return (
       <div>
-        {loaded && position === 'Goalie' && (
-          <GoalieTable stats={stats} career={career} />
-        )}
-        {loaded && position === 'Skater' && (
-          <SkaterTable stats={stats} career={career} />
+        {/* Once data loads, animate table into place */}
+        { loaded && (
+          <Spring from={{ marginLeft: -500 }} to={{ marginLeft: 0 }}>
+            {props => (
+              <div style={props}>
+                <h2>Regular Season Stats</h2>
+                {position === 'Goalie' && (
+                <GoalieTable stats={stats} career={career} />
+                )}
+                {position === 'Skater' && (
+                <SkaterTable stats={stats} career={career} />
+                )}
+              </div>
+            )}
+          </Spring>
         )}
       </div>
     );
