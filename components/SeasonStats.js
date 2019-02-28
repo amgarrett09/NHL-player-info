@@ -70,7 +70,7 @@ class SeasonStats extends React.Component { // eslint-disable-line no-undef
       <div>
         {/* Once data loads, animate table into place */}
         { loaded && (
-          <Spring from={{ marginLeft: -500 }} to={{ marginLeft: 0 }}>
+          <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
             {props => (
               <div style={props}>
                 <h2>Regular Season Stats</h2>
