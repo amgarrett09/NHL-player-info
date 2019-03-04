@@ -1,9 +1,11 @@
 import fetch from 'isomorphic-unfetch';
 import Autocomplete from 'react-autocomplete';
+import Router from 'next/router';
 
 import config from '../config';
 
-const apiUrl = config.AUTOCOMPLETE_URL;
+const autocompleteUrl = config.AUTOCOMPLETE_URL;
+const playerUrl = config.PLAYER_URL;
 
 class PlayerSearch extends React.Component { // eslint-disable-line no-undef
   state = {
@@ -11,7 +13,7 @@ class PlayerSearch extends React.Component { // eslint-disable-line no-undef
     value: '',
   };
 
-  // Update text field and get autcomplete suggestions
+  // Update text field and get autocomplete suggestions
   update = async (e) => {
     const { value } = e.target;
     this.setState({
@@ -21,7 +23,7 @@ class PlayerSearch extends React.Component { // eslint-disable-line no-undef
     // If input is three characters or more, get suggestions from API
     if (value.length >= 3) {
       try {
-        const res = await fetch(`${apiUrl}${value}`);
+        const res = await fetch(`${autocompleteUrl}${value}`);
         const json = await res.json();
         const suggestions = json.suggestions.map(item => ({
           label: item,
@@ -45,6 +47,17 @@ class PlayerSearch extends React.Component { // eslint-disable-line no-undef
     }
   };
 
+  select = async (value) => {
+    try {
+      const res = await fetch(`${playerUrl}${value}`);
+      const { player } = await res.json();
+      const playerId = player.id.toString();
+      Router.push(`/player?id=${playerId}`);
+    } catch (err) {
+      this.setState({ value });
+    }
+  }
+
   render() {
     const { value, suggestions } = this.state;
 
@@ -62,7 +75,7 @@ class PlayerSearch extends React.Component { // eslint-disable-line no-undef
         )}
         value={value}
         onChange={this.update}
-        onSelect={val => this.setState({ value: val })}
+        onSelect={val => this.select(val)}
       />
     );
   }
