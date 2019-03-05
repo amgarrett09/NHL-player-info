@@ -47,8 +47,10 @@ class PlayerSearch extends React.Component { // eslint-disable-line no-undef
     }
   };
 
+  // Find player id by name and redirect to corresponding player page
   select = async (value) => {
     try {
+      this.setState({ value });
       const res = await fetch(`${playerUrl}${value}`);
       const { player } = await res.json();
       const playerId = player.id.toString();
@@ -75,7 +77,7 @@ class PlayerSearch extends React.Component { // eslint-disable-line no-undef
         )}
         value={value}
         onChange={this.update}
-        onSelect={val => this.select(val)}
+        onSelect={this.select}
       />
     );
   }
