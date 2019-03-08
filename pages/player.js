@@ -10,7 +10,6 @@ const Player = ({
   currentTeam,
   position,
   shootsCatches,
-  age,
   height,
   weight,
   nationality,
@@ -31,7 +30,7 @@ const Player = ({
           <strong>{currentTeam}</strong>
         </p>
         <p>{`Position: ${position} • Shoots/Catches: ${shootsCatches}`}</p>
-        <p>{`Age ${age} • ${height} • ${weight} lbs • ${nationality}`}</p>
+        <p>{`${height} • ${weight} lbs • ${nationality}`}</p>
       </section>
 
       <section>
@@ -50,7 +49,6 @@ Player.propTypes = {
   currentTeam: PropTypes.string,
   position: PropTypes.string,
   shootsCatches: PropTypes.string,
-  age: PropTypes.number,
   height: PropTypes.string,
   weight: PropTypes.number,
   nationality: PropTypes.string,
@@ -62,7 +60,6 @@ Player.defaultProps = {
   currentTeam: '',
   position: '',
   shootsCatches: '',
-  age: undefined,
   height: '',
   weight: undefined,
   nationality: '',
@@ -75,19 +72,32 @@ Player.getInitialProps = async ({ query }) => {
     );
     const json = await res.json();
     const [person] = json.people;
+    const {
+      fullName,
+      primaryPosition,
+      shootsCatches,
+      height,
+      weight,
+      nationality,
+    } = person;
+
+    let currentTeam;
+
+    if (person.currentTeam) {
+      currentTeam = person.currentTeam.name;
+    }
 
     return {
       id: query.id,
-      name: person.fullName,
-      currentTeam: person.currentTeam.name,
-      position: person.primaryPosition.name,
-      shootsCatches: person.shootsCatches,
-      age: person.currentAge,
-      height: person.height,
-      weight: person.weight,
-      nationality: person.nationality,
+      name: fullName,
+      position: primaryPosition.name,
+      currentTeam,
+      shootsCatches,
+      height,
+      weight,
+      nationality,
     };
-  } catch {
+  } catch (err) {
     return {};
   }
 };
