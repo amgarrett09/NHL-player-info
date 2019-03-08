@@ -81,17 +81,11 @@ Player.getInitialProps = async ({ query }) => {
       nationality,
     } = person;
 
-    let currentTeam;
-
-    if (person.currentTeam) {
-      currentTeam = person.currentTeam.name;
-    }
-
     return {
       id: query.id,
       name: fullName,
       position: primaryPosition.name,
-      currentTeam,
+      currentTeam: person.currentTeam ? person.currentTeam.name : null,
       shootsCatches,
       height,
       weight,
