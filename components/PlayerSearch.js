@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import fetch from 'isomorphic-unfetch';
 import Autocomplete from 'react-autocomplete';
 import Router from 'next/router';
@@ -7,80 +8,67 @@ import config from '../config';
 const autocompleteUrl = config.AUTOCOMPLETE_URL;
 const playerUrl = config.PLAYER_URL;
 
-class PlayerSearch extends React.Component { // eslint-disable-line no-undef
-  state = {
-    suggestions: [],
-    value: '',
-  };
+const PlayerSearch = () => {
+  const [suggestions, setSuggestions] = useState([]);
+  const [value, setValue] = useState('');
 
   // Update text field and get autocomplete suggestions
-  update = async (e) => {
-    const { value } = e.target;
-    this.setState({
-      value,
-    });
+  const update = async (e) => {
+    const val = e.target.value;
+    setValue(val);
 
     // If input is three characters or more, get suggestions from API
-    if (value.length >= 3) {
+    if (val.length >= 3) {
       try {
-        const res = await fetch(`${autocompleteUrl}${value}`);
+        const res = await fetch(`${autocompleteUrl}${val}`);
         const json = await res.json();
-        const suggestions = json.suggestions.map(item => ({
+        const sug = json.suggestions.map(item => ({
           label: item,
         }));
 
         // Don't crash if suggestions is undefined
-        if (suggestions) {
-          this.setState({
-            suggestions,
-          });
+        if (sug) {
+          setSuggestions(sug);
         }
       } catch {
-        this.setState({
-          suggestions: [],
-        });
+        setSuggestions([]);
       }
     } else {
-      this.setState({
-        suggestions: [],
-      });
+      setSuggestions([]);
     }
   };
 
   // Find player id by name and redirect to corresponding player page
-  select = async (value) => {
+  const select = async (val) => {
     try {
-      this.setState({ value });
-      const res = await fetch(`${playerUrl}${value}`);
+      setValue(val);
+
+      const res = await fetch(`${playerUrl}${val}`);
       const { player } = await res.json();
       const playerId = player.id.toString();
       Router.push(`/player?id=${playerId}`);
     } catch (err) {
-      this.setState({ value });
+      setValue(val);
     }
-  }
+  };
 
-  render() {
-    const { value, suggestions } = this.state;
-
-    return (
-      <Autocomplete
-        getItemValue={item => item.label}
-        items={suggestions}
-        renderItem={(item, isHighlighted) => (
-          <div
-            key={item.label}
-            style={{ background: isHighlighted ? 'lightgray' : 'white' }}
-          >
-            {item.label}
-          </div>
-        )}
-        value={value}
-        onChange={this.update}
-        onSelect={this.select}
-      />
-    );
-  }
-}
+  return (
+    <Autocomplete
+      getItemValue={item => item.label}
+      items={suggestions}
+      renderItem={(item, isHighlighted) => (
+        <div
+          key={item.label}
+          style={{ background: isHighlighted ? 'lightgray' : 'white' }}
+        >
+          {item.label}
+        </div>
+      )}
+      value={value}
+      onChange={update}
+      onSelect={select}
+    />
+  );
+};
 
 export default PlayerSearch;

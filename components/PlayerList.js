@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import fetch from 'isomorphic-unfetch';
 import Link from 'next/link';
 
@@ -37,12 +38,10 @@ const teams = [
 
 ];
 
-class PlayerList extends React.Component { // eslint-disable-line no-undef
-  state = {
-    players: [],
-  };
+const PlayerList = () => {
+  const [players, setPlayers] = useState([]);
 
-  showPlayers = async (e) => {
+  const showPlayers = async (e) => {
     const teamName = e.target.value;
 
     try {
@@ -56,48 +55,40 @@ class PlayerList extends React.Component { // eslint-disable-line no-undef
       const [team] = json.teams.filter(obj => obj.name === teamName);
 
       // Get player names and ids from Roster
-      const players = team.roster.roster.map(obj => ({
+      const playerArray = team.roster.roster.map(obj => ({
         name: obj.person.fullName,
         id: obj.person.id,
       }));
 
-      this.setState({
-        players,
-      });
+      setPlayers(playerArray);
     } catch {
-      this.setState({
-        players: [],
-      });
+      setPlayers([]);
     }
-  }
+  };
 
-  render() {
-    const { players } = this.state;
-
-    return (
-      <section>
-        <h1>Find active players</h1>
-        <select onChange={this.showPlayers}>
-          <option value="">Select a team</option>
-          {teams.map(team => (
-            <option key={team.id} value={team.name}>
-              {team.name}
-            </option>
-          ))}
-        </select>
-
-        {players.map(player => (
-          <span key={player.id}>
-            <br />
-            <Link href={`/player?id=${player.id}`}>
-              <a>{player.name}</a>
-            </Link>
-          </span>
+  return (
+    <React.Fragment>
+      <h1>Find active players</h1>
+      <select onChange={showPlayers}>
+        <option value="">Select a team</option>
+        {teams.map(team => (
+          <option key={team.id} value={team.name}>
+            {team.name}
+          </option>
         ))}
-      </section>
+      </select>
 
-    );
-  }
-}
+      {players.map(player => (
+        <span key={player.id}>
+          <br />
+          <Link href={`/player?id=${player.id}`}>
+            <a>{player.name}</a>
+          </Link>
+        </span>
+      ))}
+    </React.Fragment>
+
+  );
+};
 
 export default PlayerList;

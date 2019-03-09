@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import fetch from 'isomorphic-unfetch';
 import PropTypes from 'prop-types';
 import { Spring } from 'react-spring';
@@ -5,26 +6,20 @@ import { Spring } from 'react-spring';
 import GoalieTable from './GoalieTable';
 import SkaterTable from './SkaterTable';
 
-class PlayoffStats extends React.Component { // eslint-disable-line no-undef
-  state = {
-    stats: [],
-    career: {},
-    loaded: false,
-  };
+const PlayoffStats = (props) => {
+  // state = {
+  //   stats: [],
+  //   career: {},
+  //   loaded: false,
+  // };
 
-  static propTypes = {
-    id: PropTypes.string,
-    position: PropTypes.string,
-  };
+  const [stats, setStats] = useState([]);
+  const [career, setCareer] = useState({});
+  const [loaded, setLoaded] = useState(false);
 
-  static defaultProps = {
-    id: '',
-    position: '',
-  };
-
-  async componentDidMount() {
+  const fetchData = async () => {
     try {
-      const { id } = this.props;
+      const { id } = props;
       const [statsRes, careerRes] = await Promise.all([
         fetch(
           `https://statsapi.web.nhl.com/api/v1/people/${id}/stats?stats=yearByYearPlayoffs`,
@@ -45,48 +40,60 @@ class PlayoffStats extends React.Component { // eslint-disable-line no-undef
 
       const careerStats = careerJson.stats[0].splits[0].stat;
 
-      this.setState({
-        stats: nhlStats,
-        career: careerStats,
-        loaded: true,
-      });
+      // this.setState({
+      //   stats: nhlStats,
+      //   career: careerStats,
+      //   loaded: true,
+      // });
+      setStats(nhlStats);
+      setCareer(careerStats);
+      setLoaded(true);
     } catch (err) {
-      this.setState({
-        stats: [],
-        career: {},
-        loaded: false,
-      });
+      setStats([]);
+      setCareer({});
+      setLoaded(false);
     }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  let { position } = props;
+  if (position !== 'Goalie') {
+    position = 'Skater';
   }
 
-  render() {
-    let { position } = this.props;
-    const { stats, career, loaded } = this.state;
-    if (position !== 'Goalie') {
-      position = 'Skater';
-    }
-
-    return (
-      <div>
-        {/* Once data loads, animate table into place */}
-        { loaded && (
-          <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
-            {props => (
-              <div style={props}>
-                <h2>Playoff Stats</h2>
-                {position === 'Goalie' && (
-                <GoalieTable stats={stats} career={career} />
-                )}
-                {position === 'Skater' && (
-                <SkaterTable stats={stats} career={career} />
-                )}
-              </div>
+  return (
+    <React.Fragment>
+      {/* Once data loads, animate table into place */}
+      { loaded && (
+      <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
+        {springProps => (
+          <div style={springProps}>
+            <h2>Playoff Stats</h2>
+            {position === 'Goalie' && (
+            <GoalieTable stats={stats} career={career} />
             )}
-          </Spring>
+            {position === 'Skater' && (
+            <SkaterTable stats={stats} career={career} />
+            )}
+          </div>
         )}
-      </div>
-    );
-  }
-}
+      </Spring>
+      )}
+    </React.Fragment>
+  );
+};
+
+PlayoffStats.propTypes = {
+  id: PropTypes.string,
+  position: PropTypes.string,
+};
+
+PlayoffStats.defaultProps = {
+  id: '',
+  position: '',
+};
 
 export default PlayoffStats;
