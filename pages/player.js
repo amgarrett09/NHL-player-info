@@ -35,7 +35,7 @@ const Player = ({
       </section>
 
       <section>
-        <LastFiveGames id={id} />
+        <LastFiveGames id={id} position={position} />
       </section>
 
       <section>

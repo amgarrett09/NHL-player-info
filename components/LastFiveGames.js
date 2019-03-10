@@ -3,7 +3,7 @@ import fetch from 'isomorphic-unfetch';
 import PropTypes from 'prop-types';
 import { Spring } from 'react-spring';
 
-const LastFiveGames = ({ id }) => {
+const LastFiveGames = ({ id, position }) => {
   const [games, setGames] = useState([]);
   const [loaded, setLoaded] = useState(false);
 
@@ -48,6 +48,7 @@ const LastFiveGames = ({ id }) => {
             <th>OTG</th>
             <th>S</th>
             <th>FO%</th>
+            <th>MIN</th>
           </tr>
         </thead>
 
@@ -68,6 +69,7 @@ const LastFiveGames = ({ id }) => {
               <td>{game.stat.overTimeGoals}</td>
               <td>{game.stat.shots}</td>
               <td>{game.stat.faceOffPct}</td>
+              <td>{game.stat.timeOnIce}</td>
             </tr>
           ))}
         </tbody>
@@ -75,11 +77,46 @@ const LastFiveGames = ({ id }) => {
     </React.Fragment>
   );
 
+  const goalieTable = (
+    <React.Fragment>
+      <h2>Last Five Games</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Opponent</th>
+            <th>SA</th>
+            <th>GA</th>
+            <th>S</th>
+            <th>Sv%</th>
+            <th>MIN</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {games.map((game, i) => (
+            <tr key={game.opponent.name + i.toString()}>
+              <td>{game.opponent.name}</td>
+              <td>{game.stat.shotsAgainst}</td>
+              <td>{game.stat.goalsAgainst}</td>
+              <td>{game.stat.saves}</td>
+              <td>{game.stat.savePercentage}</td>
+              <td>{game.stat.timeOnIce}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </React.Fragment>
+  );
+
+  const isCurrentSkater = position !== 'Goalie' && games.length > 0;
+  const isCurrentGoalie = position === 'Goalie' && games.length > 0;
+
   return (
     <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
       {springProps => (
         <div style={springProps}>
-          {loaded && games.length > 0 && skaterTable}
+          {loaded && isCurrentSkater && skaterTable}
+          {loaded && isCurrentGoalie && goalieTable}
         </div>
       )}
     </Spring>
@@ -88,6 +125,7 @@ const LastFiveGames = ({ id }) => {
 
 LastFiveGames.propTypes = {
   id: PropTypes.string.isRequired,
+  position: PropTypes.string.isRequired,
 };
 
 export default LastFiveGames;
