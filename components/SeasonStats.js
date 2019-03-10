@@ -14,25 +14,16 @@ const SeasonStats = (props) => {
   const fetchData = async () => {
     try {
       const { id } = props;
-      const [statsRes, careerRes] = await Promise.all([
-        fetch(
-          `https://statsapi.web.nhl.com/api/v1/people/${id}/stats?stats=yearByYear`,
-        ),
-        fetch(
-          `https://statsapi.web.nhl.com/api/v1/people/${id}/stats?stats=careerRegularSeason`,
-        ),
-      ]);
+      const res = await fetch(
+        `https://statsapi.web.nhl.com/api/v1/people/${id}/stats?stats=yearByYear,careerRegularSeason`,
+      );
+      const json = await res.json();
 
-      const [statsJson, careerJson] = await Promise.all([
-        statsRes.json(),
-        careerRes.json(),
-      ]);
-
-      const nhlStats = statsJson.stats[0].splits.filter(
+      const nhlStats = json.stats[0].splits.filter(
         obj => obj.league.name === 'National Hockey League',
       );
 
-      const careerStats = careerJson.stats[0].splits[0].stat;
+      const careerStats = json.stats[1].splits[0].stat;
 
       setStats(nhlStats);
       setCareer(careerStats);

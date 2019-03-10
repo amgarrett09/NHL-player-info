@@ -3,6 +3,7 @@ import fetch from 'isomorphic-unfetch';
 
 import SeasonStats from '../components/SeasonStats';
 import PlayoffStats from '../components/PlayoffStats';
+import LastFiveGames from '../components/LastFiveGames';
 
 const Player = ({
   id,
@@ -31,6 +32,10 @@ const Player = ({
         </p>
         <p>{`Position: ${position} • Shoots/Catches: ${shootsCatches}`}</p>
         <p>{`${height} • ${weight} lbs • ${nationality}`}</p>
+      </section>
+
+      <section>
+        <LastFiveGames id={id} />
       </section>
 
       <section>

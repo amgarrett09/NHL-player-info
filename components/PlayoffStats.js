@@ -20,25 +20,16 @@ const PlayoffStats = (props) => {
   const fetchData = async () => {
     try {
       const { id } = props;
-      const [statsRes, careerRes] = await Promise.all([
-        fetch(
-          `https://statsapi.web.nhl.com/api/v1/people/${id}/stats?stats=yearByYearPlayoffs`,
-        ),
-        fetch(
-          `https://statsapi.web.nhl.com/api/v1/people/${id}/stats?stats=careerPlayoffs`,
-        ),
-      ]);
+      const res = await fetch(
+        `https://statsapi.web.nhl.com/api/v1/people/${id}/stats?stats=yearByYearPlayoffs,careerPlayoffs`,
+      );
+      const json = await res.json();
 
-      const [statsJson, careerJson] = await Promise.all([
-        statsRes.json(),
-        careerRes.json(),
-      ]);
-
-      const nhlStats = statsJson.stats[0].splits.filter(
+      const nhlStats = json.stats[0].splits.filter(
         obj => obj.league.name === 'National Hockey League',
       );
 
-      const careerStats = careerJson.stats[0].splits[0].stat;
+      const careerStats = json.stats[1].splits[0].stat;
 
       // this.setState({
       //   stats: nhlStats,
