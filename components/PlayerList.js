@@ -69,7 +69,7 @@ const PlayerList = () => {
   return (
     <React.Fragment>
       <h1>Find active players</h1>
-      <select onChange={showPlayers}>
+      <select className="browser-default" onChange={showPlayers}>
         <option value="">Select a team</option>
         {teams.map(team => (
           <option key={team.id} value={team.name}>
