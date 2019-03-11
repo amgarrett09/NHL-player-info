@@ -6,14 +6,14 @@ import { Spring } from 'react-spring';
 import GoalieTable from './GoalieTable';
 import SkaterTable from './SkaterTable';
 
-const SeasonStats = (props) => {
+const SeasonStats = ({ id, position }) => {
   const [stats, setStats] = useState([]);
   const [career, setCareer] = useState({});
   const [loaded, setLoaded] = useState(false);
 
   const fetchData = async () => {
+    setLoaded(false);
     try {
-      const { id } = props;
       const res = await fetch(
         `https://statsapi.web.nhl.com/api/v1/people/${id}/stats?stats=yearByYear,careerRegularSeason`,
       );
@@ -37,11 +37,11 @@ const SeasonStats = (props) => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [id]);
 
-  let { position } = props;
-  if (position !== 'Goalie') {
-    position = 'Skater';
+  let playerType = position;
+  if (playerType !== 'Goalie') {
+    playerType = 'Skater';
   }
 
   return (
@@ -52,10 +52,10 @@ const SeasonStats = (props) => {
         {springProps => (
           <div style={springProps}>
             <h2>Regular Season Stats</h2>
-            {position === 'Goalie' && (
+            {playerType === 'Goalie' && (
             <GoalieTable stats={stats} career={career} />
             )}
-            {position === 'Skater' && (
+            {playerType === 'Skater' && (
             <SkaterTable stats={stats} career={career} />
             )}
           </div>

@@ -52,6 +52,8 @@ const PlayerSearch = () => {
     }
   };
 
+  const input = props => <input type="search" id="player-search" {...props} />;
+
   return (
     <Autocomplete
       getItemValue={item => item.label}
@@ -59,7 +61,10 @@ const PlayerSearch = () => {
       renderItem={(item, isHighlighted) => (
         <div
           key={item.label}
-          style={{ background: isHighlighted ? 'lightgray' : 'white' }}
+          style={{
+            background: isHighlighted ? 'lightgray' : 'white',
+            color: 'black',
+          }}
         >
           {item.label}
         </div>
@@ -67,6 +72,7 @@ const PlayerSearch = () => {
       value={value}
       onChange={update}
       onSelect={select}
+      renderInput={input}
     />
   );
 };

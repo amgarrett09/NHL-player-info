@@ -1,5 +1,6 @@
 import React from 'react';
 import App, { Container } from 'next/app';
+import Layout from '../components/Layout';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -17,7 +18,9 @@ class MyApp extends App {
 
     return (
       <Container>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </Container>
     );
   }

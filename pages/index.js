@@ -2,7 +2,6 @@ import React from 'react';
 import Head from 'next/head';
 
 import PlayerList from '../components/PlayerList';
-import PlayerSearch from '../components/PlayerSearch';
 import '../css/materialize-custom-min.css';
 
 const Index = () => (
@@ -12,9 +11,9 @@ const Index = () => (
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
       <title>NHL Player Info</title>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     </Head>
     <main>
-      <PlayerSearch />
       <PlayerList />
     </main>
 

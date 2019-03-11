@@ -33,7 +33,9 @@ const Player = ({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
         <title>{`${name} - NHL Player Info`}</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
       </Head>
+
       <main>
         <section>
           <h1>{name}</h1>

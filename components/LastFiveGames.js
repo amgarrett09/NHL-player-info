@@ -8,6 +8,7 @@ const LastFiveGames = ({ id, position }) => {
   const [loaded, setLoaded] = useState(false);
 
   const fetchData = async () => {
+    setLoaded(false);
     try {
       const res = await fetch(
         `https://statsapi.web.nhl.com/api/v1/people/${id}/stats?stats=gameLog`,
@@ -26,7 +27,7 @@ const LastFiveGames = ({ id, position }) => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [id]);
 
   const skaterTable = (
     <React.Fragment>
@@ -112,14 +113,18 @@ const LastFiveGames = ({ id, position }) => {
   const isCurrentGoalie = position === 'Goalie' && games.length > 0;
 
   return (
-    <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
-      {springProps => (
-        <div style={springProps}>
-          {loaded && isCurrentSkater && skaterTable}
-          {loaded && isCurrentGoalie && goalieTable}
-        </div>
+    <React.Fragment>
+      {loaded && (
+        <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
+          {springProps => (
+            <div style={springProps}>
+              {isCurrentSkater && skaterTable}
+              {isCurrentGoalie && goalieTable}
+            </div>
+          )}
+        </Spring>
       )}
-    </Spring>
+    </React.Fragment>
   );
 };
 

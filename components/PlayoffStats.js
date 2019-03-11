@@ -6,20 +6,14 @@ import { Spring } from 'react-spring';
 import GoalieTable from './GoalieTable';
 import SkaterTable from './SkaterTable';
 
-const PlayoffStats = (props) => {
-  // state = {
-  //   stats: [],
-  //   career: {},
-  //   loaded: false,
-  // };
-
+const PlayoffStats = ({ id, position }) => {
   const [stats, setStats] = useState([]);
   const [career, setCareer] = useState({});
   const [loaded, setLoaded] = useState(false);
 
   const fetchData = async () => {
+    setLoaded(false);
     try {
-      const { id } = props;
       const res = await fetch(
         `https://statsapi.web.nhl.com/api/v1/people/${id}/stats?stats=yearByYearPlayoffs,careerPlayoffs`,
       );
@@ -31,11 +25,6 @@ const PlayoffStats = (props) => {
 
       const careerStats = json.stats[1].splits[0].stat;
 
-      // this.setState({
-      //   stats: nhlStats,
-      //   career: careerStats,
-      //   loaded: true,
-      // });
       setStats(nhlStats);
       setCareer(careerStats);
       setLoaded(true);
@@ -48,11 +37,11 @@ const PlayoffStats = (props) => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [id]);
 
-  let { position } = props;
-  if (position !== 'Goalie') {
-    position = 'Skater';
+  let playerType = position;
+  if (playerType !== 'Goalie') {
+    playerType = 'Skater';
   }
 
   return (
@@ -63,10 +52,10 @@ const PlayoffStats = (props) => {
         {springProps => (
           <div style={springProps}>
             <h2>Playoff Stats</h2>
-            {position === 'Goalie' && (
+            {playerType === 'Goalie' && (
             <GoalieTable stats={stats} career={career} />
             )}
-            {position === 'Skater' && (
+            {playerType === 'Skater' && (
             <SkaterTable stats={stats} career={career} />
             )}
           </div>
