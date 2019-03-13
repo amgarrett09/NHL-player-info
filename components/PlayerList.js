@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import fetch from 'isomorphic-unfetch';
-import Link from 'next/link';
+import Router from 'next/router';
 
 const teams = [
 
@@ -66,6 +66,14 @@ const PlayerList = () => {
     }
   };
 
+  const choosePlayer = (e) => {
+    const playerName = e.target.value;
+    const [player] = players.filter(p => p.name === playerName);
+    const id = player.id.toString();
+
+    Router.push(`/player?id=${id}`);
+  };
+
   return (
     <React.Fragment>
       <h1>Find active players</h1>
@@ -77,15 +85,13 @@ const PlayerList = () => {
           </option>
         ))}
       </select>
-
-      {players.map(player => (
-        <span key={player.id}>
-          <br />
-          <Link href={`/player?id=${player.id}`}>
-            <a>{player.name}</a>
-          </Link>
-        </span>
-      ))}
+      <br />
+      <select className="browser-default" onChange={choosePlayer}>
+        <option value="">Choose a player</option>
+        {players.map(player => (
+          <option key={player.id} value={player.name}>{player.name}</option>
+        ))}
+      </select>
     </React.Fragment>
 
   );
