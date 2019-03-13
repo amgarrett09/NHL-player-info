@@ -3,7 +3,6 @@ import fetch from 'isomorphic-unfetch';
 import Router from 'next/router';
 
 const teams = [
-
   { name: 'Anaheim Ducks', id: 0 },
   { name: 'Arizona Coyotes', id: 1 },
   { name: 'Boston Bruins', id: 2 },
@@ -35,7 +34,6 @@ const teams = [
   { name: 'Vegas Golden Knights', id: 28 },
   { name: 'Washington Capitals', id: 29 },
   { name: 'Winnipeg Jets', id: 30 },
-
 ];
 
 const PlayerList = () => {
@@ -67,16 +65,21 @@ const PlayerList = () => {
   };
 
   const choosePlayer = (e) => {
-    const playerName = e.target.value;
+    e.preventDefault();
+    const playerName = document.querySelector('#choose-player').value;
     const [player] = players.filter(p => p.name === playerName);
-    const id = player.id.toString();
 
-    Router.push(`/player?id=${id}`);
+    if (player) {
+      const id = player.id.toString();
+
+      Router.push(`/player?id=${id}`);
+    }
   };
 
   return (
     <React.Fragment>
       <h1>Find active players</h1>
+
       <select className="browser-default" onChange={showPlayers}>
         <option value="">Select a team</option>
         {teams.map(team => (
@@ -86,14 +89,23 @@ const PlayerList = () => {
         ))}
       </select>
       <br />
-      <select className="browser-default" onChange={choosePlayer}>
+      <select className="browser-default" id="choose-player">
         <option value="">Choose a player</option>
         {players.map(player => (
-          <option key={player.id} value={player.name}>{player.name}</option>
+          <option key={player.id} value={player.name}>
+            {player.name}
+          </option>
         ))}
       </select>
+      <br />
+      <button
+        className="btn waves-effect waves-light"
+        type="submit"
+        onClick={choosePlayer}
+      >
+        Go!
+      </button>
     </React.Fragment>
-
   );
 };
 
