@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 
 import PlayerList from '../components/PlayerList';
+import DivisionStandings from '../components/DivisionStandings';
 import '../css/materialize-custom-min.css';
 
 const Index = () => (
@@ -15,6 +16,7 @@ const Index = () => (
     </Head>
     <main>
       <PlayerList />
+      <DivisionStandings />
     </main>
 
   </React.Fragment>
