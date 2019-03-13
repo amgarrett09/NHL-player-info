@@ -15,8 +15,10 @@ const Index = () => (
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     </Head>
     <main>
-      <PlayerList />
-      <DivisionStandings />
+      <div className="container">
+        <PlayerList />
+        <DivisionStandings />
+      </div>
     </main>
 
   </React.Fragment>
