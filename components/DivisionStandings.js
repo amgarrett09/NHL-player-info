@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import fetch from 'isomorphic-unfetch';
+import { Spring } from 'react-spring';
 
 import DivisionTable from './DivisionTable';
 
@@ -28,29 +29,33 @@ const DivisionStandings = () => {
   return (
     <React.Fragment>
       {loaded && (
-        <React.Fragment>
-          <h2>Division Standings</h2>
-          <div className="row">
-            <div className="col s12 m6">
-              <h3><strong>{standings[2].division.name}</strong></h3>
-              <DivisionTable division={standings[2]} />
+        <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
+          {springProps => (
+            <div style={springProps}>
+              <h2>Division Standings</h2>
+              <div className="row">
+                <div className="col s12 m6">
+                  <h3><strong>{standings[2].division.name}</strong></h3>
+                  <DivisionTable division={standings[2]} />
+                </div>
+                <div className="col s12 m6">
+                  <h3><strong>{standings[0].division.name}</strong></h3>
+                  <DivisionTable division={standings[0]} />
+                </div>
+              </div>
+              <div className="row">
+                <div className="col s12 m6">
+                  <h3><strong>{standings[3].division.name}</strong></h3>
+                  <DivisionTable division={standings[3]} />
+                </div>
+                <div className="col s12 m6">
+                  <h3><strong>{standings[1].division.name}</strong></h3>
+                  <DivisionTable division={standings[1]} />
+                </div>
+              </div>
             </div>
-            <div className="col s12 m6">
-              <h3><strong>{standings[0].division.name}</strong></h3>
-              <DivisionTable division={standings[0]} />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col s12 m6">
-              <h3><strong>{standings[3].division.name}</strong></h3>
-              <DivisionTable division={standings[3]} />
-            </div>
-            <div className="col s12 m6">
-              <h3><strong>{standings[1].division.name}</strong></h3>
-              <DivisionTable division={standings[1]} />
-            </div>
-          </div>
-        </React.Fragment>
+          )}
+        </Spring>
       )}
     </React.Fragment>
   );

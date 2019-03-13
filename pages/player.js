@@ -29,7 +29,7 @@ const Player = ({
   return (
     <React.Fragment>
       <Head>
-        <meta charset="UTF-8" />
+        <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
         <title>{`${name} - NHL Player Info`}</title>
@@ -37,25 +37,27 @@ const Player = ({
       </Head>
 
       <main>
-        <section>
-          <h1>{name}</h1>
-          <p>
-            <strong>{currentTeam}</strong>
-          </p>
-          <p>{`Position: ${position} • Shoots/Catches: ${shootsCatches}`}</p>
-          <p>{`${height} • ${weight} lbs • ${nationality}`}</p>
-        </section>
+        <div className="container">
+          <section>
+            <h1>{name}</h1>
+            <p>
+              <strong>{currentTeam}</strong>
+            </p>
+            <p>{`Position: ${position} • Shoots/Catches: ${shootsCatches}`}</p>
+            <p>{`${height} • ${weight} lbs • ${nationality}`}</p>
+          </section>
 
-        <section>
-          <LastFiveGames id={id} position={position} />
-        </section>
+          <section>
+            <LastFiveGames id={id} position={position} />
+          </section>
 
-        <section>
-          <SeasonStats id={id} position={position} />
-        </section>
-        <section>
-          <PlayoffStats id={id} position={position} />
-        </section>
+          <section>
+            <SeasonStats id={id} position={position} />
+          </section>
+          <section>
+            <PlayoffStats id={id} position={position} />
+          </section>
+        </div>
       </main>
 
     </React.Fragment>
