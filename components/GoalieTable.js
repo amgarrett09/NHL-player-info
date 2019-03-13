@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 
+import convertSeason from '../lib/convert-season';
+
 const GoalieTable = ({ stats, career }) => (
   <table>
     <thead>
@@ -25,7 +27,7 @@ const GoalieTable = ({ stats, career }) => (
     <tbody>
       {stats.map((obj, i) => (
         <tr key={obj.season + obj.team.name + i.toString()}>
-          <td>{obj.season}</td>
+          <td>{convertSeason(obj.season)}</td>
           <td>{obj.team.name}</td>
           <td>{obj.stat.games}</td>
           <td>{obj.stat.gamesStarted}</td>
@@ -45,19 +47,19 @@ const GoalieTable = ({ stats, career }) => (
       <tr>
         <td><strong>Career</strong></td>
         <td />
-        <td>{career.games}</td>
-        <td>{career.gamesStarted}</td>
-        <td>{career.wins}</td>
-        <td>{career.losses}</td>
-        <td>{career.ties}</td>
-        <td>{career.ot}</td>
-        <td>{career.shotsAgainst}</td>
-        <td>{career.goalsAgainst}</td>
-        <td>{career.goalAgainstAverage}</td>
-        <td>{career.saves}</td>
-        <td>{career.savePercentage}</td>
-        <td>{career.shutouts}</td>
-        <td>{career.timeOnIce}</td>
+        <td><strong>{career.games}</strong></td>
+        <td><strong>{career.gamesStarted}</strong></td>
+        <td><strong>{career.wins}</strong></td>
+        <td><strong>{career.losses}</strong></td>
+        <td><strong>{career.ties}</strong></td>
+        <td><strong>{career.ot}</strong></td>
+        <td><strong>{career.shotsAgainst}</strong></td>
+        <td><strong>{career.goalsAgainst}</strong></td>
+        <td><strong>{career.goalAgainstAverage}</strong></td>
+        <td><strong>{career.saves}</strong></td>
+        <td><strong>{career.savePercentage}</strong></td>
+        <td><strong>{career.shutouts}</strong></td>
+        <td><strong>{career.timeOnIce}</strong></td>
       </tr>
     </tbody>
   </table>

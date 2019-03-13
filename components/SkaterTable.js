@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 
+import convertSeason from '../lib/convert-season';
+
 const SkaterTable = ({ stats, career }) => (
   <table>
     <thead>
@@ -27,7 +29,7 @@ const SkaterTable = ({ stats, career }) => (
     <tbody>
       {stats.map((obj, i) => (
         <tr key={obj.season + obj.team.name + i.toString()}>
-          <td>{obj.season}</td>
+          <td>{convertSeason(obj.season)}</td>
           <td>{obj.team.name}</td>
           <td>{obj.stat.games}</td>
           <td>{obj.stat.goals}</td>
@@ -49,21 +51,21 @@ const SkaterTable = ({ stats, career }) => (
       <tr>
         <td><strong>Career</strong></td>
         <td />
-        <td>{career.games}</td>
-        <td>{career.goals}</td>
-        <td>{career.assists}</td>
-        <td>{career.points}</td>
-        <td>{career.plusMinus}</td>
-        <td>{career.pim}</td>
-        <td>{career.powerPlayGoals}</td>
-        <td>{career.powerPlayPoints}</td>
-        <td>{career.shortHandedGoals}</td>
-        <td>{career.shortHandedPoints}</td>
-        <td>{career.gameWinningGoals}</td>
-        <td>{career.overTimeGoals}</td>
-        <td>{career.shots}</td>
-        <td>{career.shotPct}</td>
-        <td>{career.faceOffPct}</td>
+        <td><strong>{career.games}</strong></td>
+        <td><strong>{career.goals}</strong></td>
+        <td><strong>{career.assists}</strong></td>
+        <td><strong>{career.points}</strong></td>
+        <td><strong>{career.plusMinus}</strong></td>
+        <td><strong>{career.pim}</strong></td>
+        <td><strong>{career.powerPlayGoals}</strong></td>
+        <td><strong>{career.powerPlayPoints}</strong></td>
+        <td><strong>{career.shortHandedGoals}</strong></td>
+        <td><strong>{career.shortHandedPoints}</strong></td>
+        <td><strong>{career.gameWinningGoals}</strong></td>
+        <td><strong>{career.overTimeGoals}</strong></td>
+        <td><strong>{career.shots}</strong></td>
+        <td><strong>{career.shotPct}</strong></td>
+        <td><strong>{career.faceOffPct}</strong></td>
       </tr>
     </tbody>
   </table>
