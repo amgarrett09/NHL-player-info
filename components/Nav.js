@@ -32,7 +32,7 @@ const Nav = () => {
                 <a>Hockey Scrub</a>
               </Link>
             </span>
-            <PlayerSearch />
+            <PlayerSearch id="player-search" />
           </div>
         </nav>
       </Desktop>
@@ -45,13 +45,19 @@ const Nav = () => {
                 <a>Hockey Scrub</a>
               </Link>
             </span>
-            <button type="button" className="nav__search-button" onClick={toggleNav}>
+            <button
+              type="button"
+              aria-expanded={open}
+              aria-controls="player-search"
+              className="nav__search-button"
+              onClick={toggleNav}
+            >
               search
             </button>
           </div>
           {open && (
             <div className="nav__search-container">
-              <PlayerSearch />
+              <PlayerSearch id="player-search" />
             </div>
           )}
         </nav>

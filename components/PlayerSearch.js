@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import fetch from 'isomorphic-unfetch';
+import PropTypes from 'prop-types';
 import Autocomplete from 'react-autocomplete';
 import Router from 'next/router';
 
@@ -8,7 +9,7 @@ import config from '../config';
 const autocompleteUrl = config.AUTOCOMPLETE_URL;
 const playerUrl = config.PLAYER_URL;
 
-const PlayerSearch = () => {
+const PlayerSearch = ({ id }) => {
   const [suggestions, setSuggestions] = useState([]);
   const [value, setValue] = useState('');
   const [menuOpen, setMenuOpen] = useState(false);
@@ -63,7 +64,7 @@ const PlayerSearch = () => {
   const input = props => (
     <input
       type="text"
-      id="player-search"
+      id={id}
       placeholder="Search players"
       {...props}
     />
@@ -91,6 +92,10 @@ const PlayerSearch = () => {
       renderInput={input}
     />
   );
+};
+
+PlayerSearch.propTypes = {
+  id: PropTypes.string.isRequired,
 };
 
 export default PlayerSearch;
