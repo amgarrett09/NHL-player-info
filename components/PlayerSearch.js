@@ -27,8 +27,8 @@ const PlayerSearch = () => {
           label: item,
         }));
 
-        // Don't crash if suggestions is undefined
-        if (sug) {
+        // Only set state if there are suggestions
+        if (sug && sug.length > 0) {
           setSuggestions(sug);
           setMenuOpen(true);
         }
