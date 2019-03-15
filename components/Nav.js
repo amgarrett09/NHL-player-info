@@ -26,11 +26,14 @@ const Nav = () => {
     <React.Fragment>
       <Desktop>
         <nav>
-          <span className="nav__logo">
-            <Link href="/">
-              <a>Title</a>
-            </Link>
-          </span>
+          <div className="nav__flex">
+            <span className="nav__logo">
+              <Link href="/">
+                <a>Hockey Scrub</a>
+              </Link>
+            </span>
+            <PlayerSearch />
+          </div>
         </nav>
       </Desktop>
       <Mobile>
@@ -39,7 +42,7 @@ const Nav = () => {
             <span className="nav__padding" />
             <span className="nav__logo">
               <Link href="/">
-                <a>Title</a>
+                <a>Hockey Scrub</a>
               </Link>
             </span>
             <button type="button" className="nav__search-button" onClick={toggleNav}>
@@ -47,7 +50,9 @@ const Nav = () => {
             </button>
           </div>
           {open && (
-            <div className="nav__search-container"><PlayerSearch /></div>
+            <div className="nav__search-container">
+              <PlayerSearch />
+            </div>
           )}
         </nav>
       </Mobile>

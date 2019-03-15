@@ -11,6 +11,7 @@ const playerUrl = config.PLAYER_URL;
 const PlayerSearch = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [value, setValue] = useState('');
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // Update text field and get autocomplete suggestions
   const update = async (e) => {
@@ -29,12 +30,15 @@ const PlayerSearch = () => {
         // Don't crash if suggestions is undefined
         if (sug) {
           setSuggestions(sug);
+          setMenuOpen(true);
         }
       } catch {
         setSuggestions([]);
+        setMenuOpen(false);
       }
     } else {
       setSuggestions([]);
+      setMenuOpen(false);
     }
   };
 
@@ -46,16 +50,28 @@ const PlayerSearch = () => {
       const res = await fetch(`${playerUrl}${val}`);
       const { player } = await res.json();
       const playerId = player.id.toString();
+
+      setMenuOpen(false);
+
       Router.push(`/player?id=${playerId}`);
+      setValue('');
     } catch (err) {
       setValue(val);
     }
   };
 
-  const input = props => <input type="search" id="player-search" {...props} />;
+  const input = props => (
+    <input
+      type="text"
+      id="player-search"
+      placeholder="Search players"
+      {...props}
+    />
+  );
 
   return (
     <Autocomplete
+      open={menuOpen}
       getItemValue={item => item.label}
       items={suggestions}
       renderItem={(item, isHighlighted) => (
