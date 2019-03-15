@@ -1,0 +1,40 @@
+nav {
+    transition: all 0.3s;
+}
+
+.nav--open {
+    height: 130px;
+}
+
+.nav__flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav__padding {
+    width: 40px;
+}
+
+.nav__logo {
+    margin-lefT: 10px;
+    font-size: 2.5rem;
+}
+
+.nav__search-button {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 20px;
+    font-family: 'Material Icons', sans-serif;
+    font-size: 1.5rem;
+    background-color: #ee6e73;
+    border: none;
+    color: white;
+}
+
+.nav__search-button:hover {
+    background-color: #8b191e;
+}
+
+.nav__search-container {
+    text-align: center;
+}
