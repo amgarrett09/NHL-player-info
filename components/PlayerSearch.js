@@ -55,7 +55,6 @@ const PlayerSearch = ({ id }) => {
       setMenuOpen(false);
 
       Router.push(`/player?id=${playerId}`);
-      setValue('');
     } catch (err) {
       setValue(val);
     }
