@@ -3,6 +3,8 @@ import fetch from 'isomorphic-unfetch';
 import PropTypes from 'prop-types';
 import { Spring } from 'react-spring';
 
+import '../css/stats.css';
+
 const LastFiveGames = ({ id, position }) => {
   const [games, setGames] = useState([]);
   const [loaded, setLoaded] = useState(false);
@@ -30,7 +32,7 @@ const LastFiveGames = ({ id, position }) => {
   }, [id]);
 
   const skaterTable = (
-    <React.Fragment>
+    <div className="stat-card">
       <h2>Last Five Games</h2>
       <table>
         <thead>
@@ -75,11 +77,11 @@ const LastFiveGames = ({ id, position }) => {
           ))}
         </tbody>
       </table>
-    </React.Fragment>
+    </div>
   );
 
   const goalieTable = (
-    <React.Fragment>
+    <div className="stat-card">
       <h2>Last Five Games</h2>
       <table>
         <thead>
@@ -106,7 +108,7 @@ const LastFiveGames = ({ id, position }) => {
           ))}
         </tbody>
       </table>
-    </React.Fragment>
+    </div>
   );
 
   const isCurrentSkater = position !== 'Goalie' && games.length > 0;

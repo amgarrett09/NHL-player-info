@@ -5,6 +5,7 @@ import { Spring } from 'react-spring';
 
 import GoalieTable from './GoalieTable';
 import SkaterTable from './SkaterTable';
+import '../css/stats.css';
 
 const SeasonStats = ({ id, position }) => {
   const [stats, setStats] = useState([]);
@@ -51,13 +52,15 @@ const SeasonStats = ({ id, position }) => {
       <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
         {springProps => (
           <div style={springProps}>
-            <h2>Regular Season Stats</h2>
-            {playerType === 'Goalie' && (
-            <GoalieTable stats={stats} career={career} />
-            )}
-            {playerType === 'Skater' && (
-            <SkaterTable stats={stats} career={career} />
-            )}
+            <div className="stat-card">
+              <h2>Regular Season Stats</h2>
+              {playerType === 'Goalie' && (
+              <GoalieTable stats={stats} career={career} />
+              )}
+              {playerType === 'Skater' && (
+              <SkaterTable stats={stats} career={career} />
+              )}
+            </div>
           </div>
         )}
       </Spring>
