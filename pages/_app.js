@@ -1,6 +1,7 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 import Layout from '../components/Layout';
+import '../css/materialize.css';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {

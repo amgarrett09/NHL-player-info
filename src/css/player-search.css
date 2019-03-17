@@ -1,0 +1,7 @@
+.player-search {
+    color: white;
+}
+
+.player-search:placeholder {
+    color: #e1bee7;
+}

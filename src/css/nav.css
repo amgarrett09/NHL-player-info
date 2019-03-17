@@ -26,13 +26,14 @@ nav {
     margin-right: 20px;
     font-family: 'Material Icons', sans-serif;
     font-size: 1.5rem;
-    background-color: #ee6e73;
+    background-color: #6a1b9a;
     border: none;
     color: white;
+    transition: all 0.2s;
 }
 
 .nav__search-button:hover {
-    background-color: #8b191e;
+    background-color: #9c27b0;
 }
 
 .nav__search-container {

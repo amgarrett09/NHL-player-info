@@ -5,6 +5,7 @@ import Autocomplete from 'react-autocomplete';
 import Router from 'next/router';
 
 import config from '../config';
+import '../css/player-search.css';
 
 const autocompleteUrl = config.AUTOCOMPLETE_URL;
 const playerUrl = config.PLAYER_URL;
@@ -62,6 +63,7 @@ const PlayerSearch = ({ id }) => {
 
   const input = props => (
     <input
+      className="player-search"
       type="text"
       id={id}
       placeholder="Search players"
