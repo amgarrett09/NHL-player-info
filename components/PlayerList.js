@@ -57,8 +57,14 @@ const PlayerList = () => {
         name: obj.person.fullName,
         id: obj.person.id,
       }));
+      const sortedPlayers = playerArray.sort((a, b) => {
+        const lastNameA = a.name.split(' ')[1];
+        const lastNameB = b.name.split(' ')[1];
 
-      setPlayers(playerArray);
+        return lastNameA > lastNameB ? 1 : -1;
+      });
+
+      setPlayers(sortedPlayers);
     } catch {
       setPlayers([]);
     }
