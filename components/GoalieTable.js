@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 
 import convertSeason from '../lib/convert-season';
 
+import teamAbbreviations from '../constants/constants';
+
 const GoalieTable = ({ stats, career }) => (
   <table>
     <thead>
@@ -28,7 +30,7 @@ const GoalieTable = ({ stats, career }) => (
       {stats.map((obj, i) => (
         <tr key={obj.season + obj.team.name + i.toString()}>
           <td>{convertSeason(obj.season)}</td>
-          <td>{obj.team.name}</td>
+          <td>{teamAbbreviations[obj.team.name] || obj.team.name}</td>
           <td>{obj.stat.games}</td>
           <td>{obj.stat.gamesStarted}</td>
           <td>{obj.stat.wins}</td>
