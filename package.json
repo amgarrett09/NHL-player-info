@@ -1,5 +1,5 @@
 {
-  "name": "nhl-player-info",
+  "name": "hockey-scrub",
   "version": "0.1.0",
   "description": "Stats app for NHL players",
   "main": "server.js",
