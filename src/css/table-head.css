@@ -5,12 +5,12 @@
     border-radius: 10px;
     z-index: 100;
     position: fixed;
-    transform: translateY(-250%);
-    transition: transform 0.3s;
+    top: -100px;
+    transition: top 0.3s;
 }
 
 .scrolling-head--active {
-    transform: translateY(-150%);
+    top: 0;
     box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.2);
 }
 

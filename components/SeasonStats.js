@@ -5,6 +5,8 @@ import { Spring } from 'react-spring';
 
 import GoalieTable from './GoalieTable';
 import SkaterTable from './SkaterTable';
+import { Desktop } from './DefaultMediaBreakpoints';
+import TableHead from './TableHead';
 import '../css/stats.css';
 
 const SeasonStats = ({ id, position }) => {
@@ -47,6 +49,10 @@ const SeasonStats = ({ id, position }) => {
 
   return (
     <React.Fragment>
+      {/* scrolling table head */}
+      <Desktop>
+        <TableHead position={position} />
+      </Desktop>
       {/* Once data loads, animate table into place */}
       { loaded && (
       <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>

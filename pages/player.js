@@ -42,11 +42,6 @@ const Player = ({
 
       <main>
         <div className="container">
-          {/* scrolling table head */}
-          <Desktop>
-            <TableHead position={position} />
-          </Desktop>
-
           <section>
             <h1>{name}</h1>
             <p>
