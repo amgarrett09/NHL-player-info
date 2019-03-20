@@ -24,7 +24,6 @@ const SkaterTable = ({ stats, career }) => (
         <th>OTG</th>
         <th>S</th>
         <th>S%</th>
-        <th>FO%</th>
       </tr>
     </thead>
 
@@ -47,7 +46,6 @@ const SkaterTable = ({ stats, career }) => (
           <td>{obj.stat.overTimeGoals}</td>
           <td>{obj.stat.shots}</td>
           <td>{obj.stat.shotPct}</td>
-          <td>{obj.stat.faceOffPct}</td>
         </tr>
       ))}
       <tr>
@@ -67,7 +65,6 @@ const SkaterTable = ({ stats, career }) => (
         <td><strong>{career.overTimeGoals}</strong></td>
         <td><strong>{career.shots}</strong></td>
         <td><strong>{career.shotPct}</strong></td>
-        <td><strong>{career.faceOffPct}</strong></td>
       </tr>
     </tbody>
   </table>

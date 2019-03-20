@@ -12,7 +12,7 @@ const TableHead = ({ position }) => {
 
     if (table) {
       // Calculate height where season stats are visible
-      const shouldShow = window.scrollY > table.offsetTop;
+      const shouldShow = window.scrollY > table.offsetTop + 50;
 
       const head = document.querySelector('.scrolling-head');
 
@@ -62,7 +62,6 @@ const TableHead = ({ position }) => {
               <th>OTG</th>
               <th>S</th>
               <th>S%</th>
-              <th>FO%</th>
             </tr>
           </thead>
         </table>

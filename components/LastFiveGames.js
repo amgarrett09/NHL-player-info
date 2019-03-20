@@ -50,7 +50,6 @@ const LastFiveGames = ({ id, position }) => {
             <th>GWG</th>
             <th>OTG</th>
             <th>S</th>
-            <th>FO%</th>
             <th>MIN</th>
           </tr>
         </thead>
@@ -71,7 +70,6 @@ const LastFiveGames = ({ id, position }) => {
               <td>{game.stat.gameWinningGoals}</td>
               <td>{game.stat.overTimeGoals}</td>
               <td>{game.stat.shots}</td>
-              <td>{game.stat.faceOffPct}</td>
               <td>{game.stat.timeOnIce}</td>
             </tr>
           ))}
