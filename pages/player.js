@@ -7,6 +7,8 @@ import SeasonStats from '../components/SeasonStats';
 import PlayoffStats from '../components/PlayoffStats';
 import LastFiveGames from '../components/LastFiveGames';
 
+import '../css/player.css';
+
 const Player = ({
   id,
   name,
@@ -16,6 +18,7 @@ const Player = ({
   height,
   weight,
   nationality,
+  active,
 }) => {
   if (id === '') {
     return (
@@ -46,13 +49,18 @@ const Player = ({
             <p>{`${height} • ${weight} lbs • ${nationality}`}</p>
           </section>
 
-          <section>
-            <LastFiveGames id={id} position={position} />
+          {/* 'top-block' class helps prevent flickering */}
+          <section className="top-block">
+            {active && <LastFiveGames id={id} position={position} />}
+            {!active && <SeasonStats id={id} position={position} />}
           </section>
 
-          <section>
-            <SeasonStats id={id} position={position} />
-          </section>
+          {active && (
+            <section className="top-block">
+              <SeasonStats id={id} position={position} />
+            </section>
+          )}
+
           <section>
             <PlayoffStats id={id} position={position} />
           </section>
@@ -72,6 +80,7 @@ Player.propTypes = {
   height: PropTypes.string,
   weight: PropTypes.number,
   nationality: PropTypes.string,
+  active: PropTypes.bool,
 };
 
 Player.defaultProps = {
@@ -83,6 +92,7 @@ Player.defaultProps = {
   height: '',
   weight: undefined,
   nationality: '',
+  active: false,
 };
 
 Player.getInitialProps = async ({ query }) => {
@@ -99,6 +109,7 @@ Player.getInitialProps = async ({ query }) => {
       height,
       weight,
       nationality,
+      active,
     } = person;
 
     return {
@@ -110,6 +121,7 @@ Player.getInitialProps = async ({ query }) => {
       height,
       weight,
       nationality,
+      active,
     };
   } catch (err) {
     return {};
