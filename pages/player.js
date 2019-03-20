@@ -6,6 +6,8 @@ import Head from 'next/head';
 import SeasonStats from '../components/SeasonStats';
 import PlayoffStats from '../components/PlayoffStats';
 import LastFiveGames from '../components/LastFiveGames';
+import TableHead from '../components/TableHead';
+import { Desktop } from '../components/DefaultMediaBreakpoints';
 
 import '../css/player.css';
 
@@ -40,6 +42,11 @@ const Player = ({
 
       <main>
         <div className="container">
+          {/* scrolling table head */}
+          <Desktop>
+            <TableHead position={position} />
+          </Desktop>
+
           <section>
             <h1>{name}</h1>
             <p>
@@ -56,7 +63,7 @@ const Player = ({
           </section>
 
           {active && (
-            <section className="top-block">
+            <section>
               <SeasonStats id={id} position={position} />
             </section>
           )}

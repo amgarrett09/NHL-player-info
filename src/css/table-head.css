@@ -1,0 +1,21 @@
+.scrolling-head {
+    width: 70%;
+    padding: 10px 20px 10px 20px;
+    background-color: hsl(0, 0%, 98%);
+    border-radius: 10px;
+    z-index: 100;
+    position: fixed;
+    transform: translateY(-250%);
+    transition: transform 0.3s;
+}
+
+.scrolling-head--active {
+    transform: translateY(-150%);
+    box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 992px) {
+    .scrolling-head{
+        width: 84vw;
+    }
+}
