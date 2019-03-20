@@ -7,6 +7,11 @@ import '../css/nav.css';
 const Nav = () => {
   const [open, setOpen] = useState(false);
 
+  /* Used on mobile nav to restore correct class if user switches between mobile
+  and desktop layouts */
+  const openClass = 'purple darken-3 nav--open';
+  const closedClass = 'purple darken-3';
+
   const toggleNav = (e) => {
     e.preventDefault();
 
@@ -37,7 +42,7 @@ const Nav = () => {
         </nav>
       </Desktop>
       <Mobile>
-        <nav className="purple darken-3">
+        <nav className={open ? openClass : closedClass}>
           <div className="nav__flex">
             <span className="nav__padding" />
             <span className="nav__logo">
