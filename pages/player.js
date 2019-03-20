@@ -6,8 +6,6 @@ import Head from 'next/head';
 import SeasonStats from '../components/SeasonStats';
 import PlayoffStats from '../components/PlayoffStats';
 import LastFiveGames from '../components/LastFiveGames';
-import TableHead from '../components/TableHead';
-import { Desktop } from '../components/DefaultMediaBreakpoints';
 
 import '../css/player.css';
 
