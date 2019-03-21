@@ -7,6 +7,15 @@ import GoalieTable from './GoalieTable';
 
 import '../css/table-head.css';
 
+/* A table head that follows user on scoll to make tables easier to read
+
+Props:
+targetId - the id of the table that this head applies to
+position - the position of the player the stats apply to
+stats - the year-by-year stat data for the player
+career - the career stat data for the player
+
+This needs the stat data in order to align the columns of the head properly. */
 const TableHead = ({
   targetId, position, stats, career,
 }) => {
