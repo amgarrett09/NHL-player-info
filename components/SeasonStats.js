@@ -58,8 +58,8 @@ const SeasonStats = ({ id, position }) => {
       <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
         {springProps => (
           <div style={springProps}>
-            <div className="stat-card">
-              <h2 id="season-stat-table">Regular Season Stats</h2>
+            <div className="stat-card" id="season-stat-table">
+              <h2>Regular Season Stats</h2>
               {playerType === 'Goalie' && (
               <GoalieTable stats={stats} career={career} />
               )}

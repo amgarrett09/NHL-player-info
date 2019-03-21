@@ -15,7 +15,9 @@ const TableHead = ({ position, stats, career }) => {
 
     if (table) {
       // Calculate height where season stats are visible
-      const shouldShow = window.scrollY > table.offsetTop + 50;
+      const inHeight = table.offsetTop + 70;
+      const outHeight = inHeight + table.clientHeight - 150;
+      const shouldShow = window.scrollY > inHeight && window.scrollY < outHeight;
 
       const head = document.querySelector('.scrolling-head');
 
@@ -48,21 +50,19 @@ const TableHead = ({ position, stats, career }) => {
       {/* Loading full tables with stats to make sure the labels line up
       with the table that's on the page. The actual stats will not be visible.
       Not ideal, but it works */}
-      {pos === 'Skater' && (
-        <SkaterTable stats={stats} career={career} />
-      )}
-      {pos === 'Goalie' && (
-        <GoalieTable stats={stats} career={career} />
-      )}
+      {pos === 'Skater' && <SkaterTable stats={stats} career={career} />}
+      {pos === 'Goalie' && <GoalieTable stats={stats} career={career} />}
     </div>
   );
 };
 
 TableHead.propTypes = {
   position: PropTypes.string.isRequired,
-  stats: PropTypes.arrayOf(PropTypes.shape({
-    season: PropTypes.string,
-  })),
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      season: PropTypes.string,
+    }),
+  ),
   career: PropTypes.shape({
     stat: PropTypes.shape({
       timeOnIce: PropTypes.string,
