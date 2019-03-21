@@ -27,7 +27,7 @@ const TableHead = ({
 
     if (table) {
       // Calculate height where season stats are visible
-      const inHeight = table.offsetTop + 70;
+      const inHeight = table.offsetTop + 80;
       const outHeight = inHeight + table.clientHeight - 150;
       const shouldShow = window.scrollY > inHeight && window.scrollY < outHeight;
 

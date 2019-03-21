@@ -109,8 +109,7 @@ const LastFiveGames = ({ id, position }) => {
     </div>
   );
 
-  const isCurrentSkater = position !== 'Goalie' && games.length > 0;
-  const isCurrentGoalie = position === 'Goalie' && games.length > 0;
+  const isGoalie = position === 'Goalie';
 
   return (
     <React.Fragment>
@@ -118,8 +117,8 @@ const LastFiveGames = ({ id, position }) => {
         <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
           {springProps => (
             <div style={springProps}>
-              {isCurrentSkater && skaterTable}
-              {isCurrentGoalie && goalieTable}
+              {!isGoalie && skaterTable}
+              {isGoalie && goalieTable}
             </div>
           )}
         </Spring>

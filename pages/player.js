@@ -52,7 +52,7 @@ const Player = ({
           {/* 'top-block' class helps prevent flickering */}
           <section className="top-block">
             {active && <LastFiveGames id={id} position={position} />}
-            {!active && <SeasonStats id={id} position={position} />}
+            {!active && <SeasonStats playerId={id} position={position} id="season-stats" />}
           </section>
 
           {active && (
