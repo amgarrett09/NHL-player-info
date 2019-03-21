@@ -5,9 +5,12 @@ import { Spring } from 'react-spring';
 
 import GoalieTable from './GoalieTable';
 import SkaterTable from './SkaterTable';
+import TableHead from './TableHead';
+import { Desktop } from './DefaultMediaBreakpoints';
+
 import '../css/stats.css';
 
-const PlayoffStats = ({ id, position }) => {
+const PlayoffStats = ({ playerId, position, id }) => {
   const [stats, setStats] = useState([]);
   const [career, setCareer] = useState({});
   const [loaded, setLoaded] = useState(false);
@@ -16,7 +19,7 @@ const PlayoffStats = ({ id, position }) => {
     setLoaded(false);
     try {
       const res = await fetch(
-        `https://statsapi.web.nhl.com/api/v1/people/${id}/stats?stats=yearByYearPlayoffs,careerPlayoffs`,
+        `https://statsapi.web.nhl.com/api/v1/people/${playerId}/stats?stats=yearByYearPlayoffs,careerPlayoffs`,
       );
       const json = await res.json();
 
@@ -38,7 +41,7 @@ const PlayoffStats = ({ id, position }) => {
 
   useEffect(() => {
     fetchData();
-  }, [id]);
+  }, [playerId]);
 
   let playerType = position;
   if (playerType !== 'Goalie') {
@@ -47,12 +50,21 @@ const PlayoffStats = ({ id, position }) => {
 
   return (
     <React.Fragment>
+      {/* scrolling table head */}
+      <Desktop>
+        <TableHead
+          position={position}
+          stats={stats}
+          career={career}
+          targetId={id}
+        />
+      </Desktop>
       {/* Once data loads, animate table into place */}
       { loaded && (
       <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
         {springProps => (
           <div style={springProps}>
-            <div className="stat-card">
+            <div className="stat-card" id={id}>
               <h2>Playoff Stats</h2>
               {playerType === 'Goalie' && (
               <GoalieTable stats={stats} career={career} />
@@ -70,12 +82,13 @@ const PlayoffStats = ({ id, position }) => {
 };
 
 PlayoffStats.propTypes = {
-  id: PropTypes.string,
+  playerId: PropTypes.string,
   position: PropTypes.string,
+  id: PropTypes.string.isRequired,
 };
 
 PlayoffStats.defaultProps = {
-  id: '',
+  playerId: '',
   position: '',
 };
 

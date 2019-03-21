@@ -57,12 +57,12 @@ const Player = ({
 
           {active && (
             <section>
-              <SeasonStats id={id} position={position} />
+              <SeasonStats playerId={id} position={position} id="season-stats" />
             </section>
           )}
 
           <section>
-            <PlayoffStats id={id} position={position} />
+            <PlayoffStats playerId={id} position={position} id="playoff-stats" />
           </section>
         </div>
       </main>

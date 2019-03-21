@@ -7,11 +7,14 @@ import GoalieTable from './GoalieTable';
 
 import '../css/table-head.css';
 
-const TableHead = ({ position, stats, career }) => {
+const TableHead = ({
+  targetId, position, stats, career,
+}) => {
   const pos = position === 'Goalie' ? 'Goalie' : 'Skater';
+  const headId = `${targetId}-head`;
 
   const checkScroll = () => {
-    const table = document.querySelector('#season-stat-table');
+    const table = document.getElementById(targetId);
 
     if (table) {
       // Calculate height where season stats are visible
@@ -19,7 +22,7 @@ const TableHead = ({ position, stats, career }) => {
       const outHeight = inHeight + table.clientHeight - 150;
       const shouldShow = window.scrollY > inHeight && window.scrollY < outHeight;
 
-      const head = document.querySelector('.scrolling-head');
+      const head = document.getElementById(headId);
 
       if (shouldShow) {
         head.classList.add('scrolling-head--active');
@@ -46,7 +49,7 @@ const TableHead = ({ position, stats, career }) => {
   }, []);
 
   return (
-    <div className="scrolling-head">
+    <div className="scrolling-head" id={headId}>
       {/* Loading full tables with stats to make sure the labels line up
       with the table that's on the page. The actual stats will not be visible.
       Not ideal, but it works */}
@@ -57,6 +60,7 @@ const TableHead = ({ position, stats, career }) => {
 };
 
 TableHead.propTypes = {
+  targetId: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
   stats: PropTypes.arrayOf(
     PropTypes.shape({

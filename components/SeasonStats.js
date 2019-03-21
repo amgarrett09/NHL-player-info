@@ -9,7 +9,7 @@ import { Desktop } from './DefaultMediaBreakpoints';
 import TableHead from './TableHead';
 import '../css/stats.css';
 
-const SeasonStats = ({ id, position }) => {
+const SeasonStats = ({ playerId, position, id }) => {
   const [stats, setStats] = useState([]);
   const [career, setCareer] = useState({});
   const [loaded, setLoaded] = useState(false);
@@ -18,7 +18,7 @@ const SeasonStats = ({ id, position }) => {
     setLoaded(false);
     try {
       const res = await fetch(
-        `https://statsapi.web.nhl.com/api/v1/people/${id}/stats?stats=yearByYear,careerRegularSeason`,
+        `https://statsapi.web.nhl.com/api/v1/people/${playerId}/stats?stats=yearByYear,careerRegularSeason`,
       );
       const json = await res.json();
 
@@ -40,7 +40,7 @@ const SeasonStats = ({ id, position }) => {
 
   useEffect(() => {
     fetchData();
-  }, [id]);
+  }, [playerId]);
 
   let playerType = position;
   if (playerType !== 'Goalie') {
@@ -51,37 +51,43 @@ const SeasonStats = ({ id, position }) => {
     <React.Fragment>
       {/* scrolling table head */}
       <Desktop>
-        <TableHead position={position} stats={stats} career={career} />
+        <TableHead
+          position={position}
+          stats={stats}
+          career={career}
+          targetId={id}
+        />
       </Desktop>
       {/* Once data loads, animate table into place */}
-      { loaded && (
-      <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
-        {springProps => (
-          <div style={springProps}>
-            <div className="stat-card" id="season-stat-table">
-              <h2>Regular Season Stats</h2>
-              {playerType === 'Goalie' && (
-              <GoalieTable stats={stats} career={career} />
-              )}
-              {playerType === 'Skater' && (
-              <SkaterTable stats={stats} career={career} />
-              )}
+      {loaded && (
+        <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
+          {springProps => (
+            <div style={springProps}>
+              <div className="stat-card" id={id}>
+                <h2>Regular Season Stats</h2>
+                {playerType === 'Goalie' && (
+                  <GoalieTable stats={stats} career={career} />
+                )}
+                {playerType === 'Skater' && (
+                  <SkaterTable stats={stats} career={career} />
+                )}
+              </div>
             </div>
-          </div>
-        )}
-      </Spring>
+          )}
+        </Spring>
       )}
     </React.Fragment>
   );
 };
 
 SeasonStats.propTypes = {
-  id: PropTypes.string,
+  playerId: PropTypes.string,
   position: PropTypes.string,
+  id: PropTypes.string.isRequired,
 };
 
 SeasonStats.defaultProps = {
-  id: '',
+  playerId: '',
   position: '',
 };
 
