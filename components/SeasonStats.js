@@ -51,7 +51,7 @@ const SeasonStats = ({ id, position }) => {
     <React.Fragment>
       {/* scrolling table head */}
       <Desktop>
-        <TableHead position={position} />
+        <TableHead position={position} stats={stats} career={career} />
       </Desktop>
       {/* Once data loads, animate table into place */}
       { loaded && (

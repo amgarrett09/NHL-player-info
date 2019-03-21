@@ -2,9 +2,12 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 
+import SkaterTable from './SkaterTable';
+import GoalieTable from './GoalieTable';
+
 import '../css/table-head.css';
 
-const TableHead = ({ position }) => {
+const TableHead = ({ position, stats, career }) => {
   const pos = position === 'Goalie' ? 'Goalie' : 'Skater';
 
   const checkScroll = () => {
@@ -24,7 +27,7 @@ const TableHead = ({ position }) => {
     }
   };
 
-  const debouncedScroll = debounce(checkScroll, 10);
+  const debouncedScroll = debounce(checkScroll, 20);
 
   const setupScrollListeners = () => {
     window.addEventListener('scroll', debouncedScroll);
@@ -42,52 +45,14 @@ const TableHead = ({ position }) => {
 
   return (
     <div className="scrolling-head">
+      {/* Loading full tables with stats to make sure the labels line up
+      with the table that's on the page. The actual stats will not be visible.
+      Not ideal, but it works */}
       {pos === 'Skater' && (
-        <table>
-          <thead>
-            <tr>
-              <th>Season</th>
-              <th>Team</th>
-              <th>GP</th>
-              <th>G</th>
-              <th>A</th>
-              <th>P</th>
-              <th>+/-</th>
-              <th>PIM</th>
-              <th>PPG</th>
-              <th>PPP</th>
-              <th>SHG</th>
-              <th>SHP</th>
-              <th>GWG</th>
-              <th>OTG</th>
-              <th>S</th>
-              <th>S%</th>
-            </tr>
-          </thead>
-        </table>
+        <SkaterTable stats={stats} career={career} />
       )}
       {pos === 'Goalie' && (
-        <table>
-          <thead>
-            <tr>
-              <th>Season</th>
-              <th>Team</th>
-              <th>GP</th>
-              <th>GS</th>
-              <th>W</th>
-              <th>L</th>
-              <th>T</th>
-              <th>OT</th>
-              <th>SA</th>
-              <th>GA</th>
-              <th>GAA</th>
-              <th>S</th>
-              <th>Sv%</th>
-              <th>SO</th>
-              <th>MIN</th>
-            </tr>
-          </thead>
-        </table>
+        <GoalieTable stats={stats} career={career} />
       )}
     </div>
   );
@@ -95,6 +60,19 @@ const TableHead = ({ position }) => {
 
 TableHead.propTypes = {
   position: PropTypes.string.isRequired,
+  stats: PropTypes.arrayOf(PropTypes.shape({
+    season: PropTypes.string,
+  })),
+  career: PropTypes.shape({
+    stat: PropTypes.shape({
+      timeOnIce: PropTypes.string,
+    }),
+  }),
+};
+
+TableHead.defaultProps = {
+  stats: [],
+  career: {},
 };
 
 export default TableHead;
