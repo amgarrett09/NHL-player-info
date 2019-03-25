@@ -22,9 +22,18 @@ const Player = ({
 }) => {
   if (id === '') {
     return (
-      <main>
-        <h1>Invalid player id</h1>
-      </main>
+      <React.Fragment>
+        <Head>
+          <meta charSet="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
+          <title>Invalid ID - Hockey Scrub</title>
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        </Head>
+        <main>
+          <h1>Invalid player id</h1>
+        </main>
+      </React.Fragment>
     );
   }
 
