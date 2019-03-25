@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 class Error extends React.Component {
   static getInitialProps({ res, err }) {
-    // const statusCode = res ? res.statusCode : err ? err.statusCode : null;
     let code;
     if (res) {
       code = res.statusCode;
