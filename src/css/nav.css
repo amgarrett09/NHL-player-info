@@ -30,6 +30,7 @@ nav {
     border: none;
     color: white;
     transition: all 0.2s;
+    height: 64px;
 }
 
 .nav__search-button:hover {
