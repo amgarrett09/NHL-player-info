@@ -21,16 +21,13 @@ nav {
 }
 
 .nav__search-button {
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-right: 20px;
     font-family: 'Material Icons', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     background-color: #6a1b9a;
     border: none;
     color: white;
     transition: all 0.2s;
-    height: 64px;
+    width: 64px;
 }
 
 .nav__search-button:hover {
