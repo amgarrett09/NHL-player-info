@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GameInfo should not change unexpectedly 1`] = `
+<div
+  className="game-info"
+>
+  <div
+    className="game-info__scores"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col s6"
+      >
+        DET
+      </div>
+      <div
+        className="col s6"
+      >
+        5
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col s6"
+      >
+        BUF
+      </div>
+      <div
+        className="col s6"
+      >
+        4
+      </div>
+    </div>
+  </div>
+  <div
+    className="game-info__game-state"
+  >
+    FINAL
+  </div>
+</div>
+`;
