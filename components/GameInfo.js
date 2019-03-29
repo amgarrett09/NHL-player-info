@@ -9,19 +9,19 @@ const GameInfo = ({
   <div className="game-info">
     <div className="game-info__scores">
       <div className="row">
-        <div className="col s6">
+        <div className="col s6" data-test="team-name">
           {teamAbbreviations[awayTeam] || awayTeam}
         </div>
-        <div className="col s6">
+        <div className="col s6" data-test="team-score">
           {awayScore}
         </div>
       </div>
 
       <div className="row">
-        <div className="col s6">
+        <div className="col s6" data-test="team-name">
           {teamAbbreviations[homeTeam] || awayTeam}
         </div>
-        <div className="col s6">
+        <div className="col s6" data-test="team-score">
           {homeScore}
         </div>
       </div>

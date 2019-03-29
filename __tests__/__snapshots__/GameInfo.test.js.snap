@@ -12,11 +12,13 @@ exports[`GameInfo should not change unexpectedly 1`] = `
     >
       <div
         className="col s6"
+        data-test="team-name"
       >
         DET
       </div>
       <div
         className="col s6"
+        data-test="team-score"
       >
         5
       </div>
@@ -26,11 +28,13 @@ exports[`GameInfo should not change unexpectedly 1`] = `
     >
       <div
         className="col s6"
+        data-test="team-name"
       >
         BUF
       </div>
       <div
         className="col s6"
+        data-test="team-score"
       >
         4
       </div>
