@@ -3,8 +3,10 @@ import Head from 'next/head';
 
 import PlayerList from '../components/PlayerList';
 import DivisionStandings from '../components/DivisionStandings';
-import GamesContainer from '../components/GamesContainer';
+import withGameState from '../components/higher-order/withGameState';
+import GameCarousel from '../components/GameCarousel';
 
+const Carousel = withGameState(GameCarousel);
 
 const Index = () => (
   <React.Fragment>
@@ -18,7 +20,7 @@ const Index = () => (
     <main>
       <div className="container">
         <PlayerList />
-        <GamesContainer />
+        <Carousel />
         <DivisionStandings />
       </div>
     </main>
