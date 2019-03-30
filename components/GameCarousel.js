@@ -28,6 +28,8 @@ const GameCarousel = ({ games }) => (
             homeTeam={game.homeTeam}
             homeScore={game.homeScore}
             gameState={game.gameState}
+            stateCode={game.stateCode}
+            gameTime={game.gameTime}
           />
         </Slide>
       ))}
@@ -45,6 +47,8 @@ GameCarousel.propTypes = {
       homeTeam: PropTypes.string,
       homeScore: PropTypes.number,
       gameState: PropTypes.string,
+      stateCode: PropTypes.string,
+      gameTime: PropTypes.string,
     }),
   ).isRequired,
 };

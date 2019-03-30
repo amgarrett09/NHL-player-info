@@ -42,8 +42,9 @@ exports[`GameInfo should not change unexpectedly 1`] = `
   </div>
   <div
     className="game-info__game-state"
+    data-test="game-status"
   >
-    FINAL
+    3RD
   </div>
 </div>
 `;

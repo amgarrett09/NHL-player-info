@@ -1,1 +1,1 @@
-.game-info{display:flex;flex-direction:row;justify-content:space-between;align-content:center;width:200px;height:100px}.game-info__scores{padding-top:17px}.game-info__game-state{padding-top:35px}
+.game-info{display:flex;flex-direction:row;justify-content:space-between;align-content:center;width:200px;height:100px;background-color:blue}.game-info__scores{padding-top:17px}.game-info__game-state{padding-top:35px}

@@ -18,6 +18,8 @@ const withGameState = WrappedComponent => (props) => {
       homeTeam: game.teams.home.team.name,
       homeScore: game.teams.home.score,
       gameState: game.status.detailedState,
+      stateCode: game.status.statusCode,
+      gameTime: game.gameDate.slice(11, 16),
     }));
 
     setGames(out);

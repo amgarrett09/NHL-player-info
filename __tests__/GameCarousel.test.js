@@ -12,20 +12,26 @@ const games = [
     homeTeam: 'Buffalo Sabres',
     homeScore: 4,
     gameState: 'FINAL',
+    stateCode: '8',
+    gameTime: '20:00',
   },
   {
     awayTeam: 'Chicago Blackhawks',
     awayScore: 3,
     homeTeam: 'Winnipeg Jets',
     homeScore: 4,
-    gameState: '3RD',
+    gameState: 'Live',
+    stateCode: '3',
+    gameTime: '21:00',
   },
   {
     awayTeam: 'San Jose Sharks',
     awayScore: 2,
     homeTeam: 'Arizona Coyotes',
     homeScore: 1,
-    gameState: '1ST',
+    gameState: 'Live',
+    stateCode: '1',
+    gameTime: '22:00',
   },
 ];
 
