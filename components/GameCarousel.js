@@ -16,7 +16,7 @@ const GameCarousel = ({ games }) => (
     naturalSlideWidth={200}
     naturalSlideHeight={100}
     totalSlides={games.length}
-    visibleSlides={2}
+    visibleSlides={4}
     className="game-carousel"
   >
     <Slider>

@@ -1,5 +1,6 @@
 .game-carousel {
-    height: 200px;
+    height: auto;
     overflow: hidden;
     margin-top: 20px;
+    background-color: red;
 }
