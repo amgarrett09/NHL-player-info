@@ -11,7 +11,7 @@ const withGameState = WrappedComponent => (props) => {
     const json = await res.json();
     const gamesData = json.dates[0].games;
 
-    // Prepare data in a way that easier for wrapped components to work with
+    // Prepare data in a way that's easier for wrapped components to work with
     const out = gamesData.map(game => ({
       awayTeam: game.teams.away.team.name,
       awayScore: game.teams.away.score,
