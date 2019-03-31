@@ -41,7 +41,7 @@ const TableHead = ({
     }
   };
 
-  const debouncedScroll = debounce(checkScroll, 20);
+  const debouncedScroll = debounce(checkScroll, 30);
 
   const setupScrollListeners = () => {
     window.addEventListener('scroll', debouncedScroll);
