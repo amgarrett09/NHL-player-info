@@ -4,6 +4,15 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
 <div
   className="carousel game-carousel"
 >
+  <button
+    aria-label="previous"
+    className="buttonBack___1mlaL carousel__back-button game-carousel__button"
+    disabled={true}
+    onClick={[Function]}
+    type="button"
+  >
+    Back
+  </button>
   <div
     aria-live="polite"
     className="horizontalSlider___281Ls carousel__slider carousel__slider--horizontal"
@@ -33,7 +42,7 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
       >
         <li
           aria-selected={true}
-          className="slide___3-Nqo slideHorizontal___1NzNV carousel__slide carousel__slide--visible"
+          className="slide___3-Nqo slideHorizontal___1NzNV carousel__slide carousel__slide--visible game-carousel__slider"
           data-test="slide"
           onBlur={[Function]}
           onFocus={[Function]}
@@ -99,7 +108,7 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
         </li>
         <li
           aria-selected={true}
-          className="slide___3-Nqo slideHorizontal___1NzNV carousel__slide carousel__slide--visible"
+          className="slide___3-Nqo slideHorizontal___1NzNV carousel__slide carousel__slide--visible game-carousel__slider"
           data-test="slide"
           onBlur={[Function]}
           onFocus={[Function]}
@@ -165,7 +174,7 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
         </li>
         <li
           aria-selected={true}
-          className="slide___3-Nqo slideHorizontal___1NzNV carousel__slide carousel__slide--visible"
+          className="slide___3-Nqo slideHorizontal___1NzNV carousel__slide carousel__slide--visible game-carousel__slider"
           data-test="slide"
           onBlur={[Function]}
           onFocus={[Function]}
@@ -233,17 +242,8 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
     </div>
   </div>
   <button
-    aria-label="previous"
-    className="buttonBack___1mlaL carousel__back-button"
-    disabled={true}
-    onClick={[Function]}
-    type="button"
-  >
-    Back
-  </button>
-  <button
     aria-label="next"
-    className="buttonNext___2mOCa carousel__next-button"
+    className="buttonNext___2mOCa carousel__next-button game-carousel__button"
     disabled={true}
     onClick={[Function]}
     type="button"

@@ -3,15 +3,18 @@
     flex-direction: row;
     justify-content: space-between;
     align-content: center;
-    width: 200px;
+    width: 150px;
     height: 100px;
-    background-color: blue;
+    background-color: hsl(0, 0%, 95%);
+    box-shadow: 3px 6px 25px rgba(0, 0, 0, 0.2);
 }
 
 .game-info__scores {
     padding-top: 17px;
+    padding-left: 10px;
 }
 
 .game-info__game-state {
     padding-top: 35px;
+    padding-right: 10px;
 }

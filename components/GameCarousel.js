@@ -19,9 +19,15 @@ const GameCarousel = ({ games }) => (
     visibleSlides={4}
     className="game-carousel"
   >
+    <ButtonBack className="game-carousel__button">Back</ButtonBack>
     <Slider>
       {games.map((game, i) => (
-        <Slide key={game.awayTeam + game.homeTeam} index={i} data-test="slide">
+        <Slide
+          key={game.awayTeam + game.homeTeam}
+          index={i}
+          className="game-carousel__slider"
+          data-test="slide"
+        >
           <GameInfo
             awayTeam={game.awayTeam}
             awayScore={game.awayScore}
@@ -34,8 +40,7 @@ const GameCarousel = ({ games }) => (
         </Slide>
       ))}
     </Slider>
-    <ButtonBack>Back</ButtonBack>
-    <ButtonNext>Next</ButtonNext>
+    <ButtonNext className="game-carousel__button">Next</ButtonNext>
   </CarouselProvider>
 );
 
