@@ -9,21 +9,18 @@ const Nav = () => {
 
   /* Used on mobile nav to restore correct class if user switches between mobile
   and desktop layouts */
-  const openClass = 'purple darken-3 nav--open';
-  const closedClass = 'purple darken-3';
+  const openClass = 'nav-extension nav-extension--open';
+  const closedClass = 'nav-extension';
 
   const toggleNav = (e) => {
     e.preventDefault();
-
-    const nav = document.querySelector('nav');
-    nav.classList.toggle('nav--open');
-
+    document
+      .querySelector('.nav-extension')
+      .classList.toggle('nav-extension--open');
     if (open) {
       setOpen(false);
     } else {
-      setTimeout(() => {
-        setOpen(true);
-      }, 0.3 * 1000);
+      setOpen(true);
     }
   };
 
@@ -42,7 +39,7 @@ const Nav = () => {
         </nav>
       </Desktop>
       <Mobile>
-        <nav className={open ? openClass : closedClass}>
+        <nav className="purple darken-3">
           <div className="nav__flex">
             <span className="nav__padding" />
             <span className="nav__logo">
@@ -60,12 +57,14 @@ const Nav = () => {
               search
             </button>
           </div>
-          {open && (
-            <div className="nav__search-container">
-              <PlayerSearch id="player-search" />
-            </div>
-          )}
         </nav>
+        <div className={open ? openClass : closedClass}>
+          {open && (
+          <div className="nav__search-container">
+            <PlayerSearch id="player-search" />
+          </div>
+          )}
+        </div>
       </Mobile>
     </React.Fragment>
   );

@@ -1,9 +1,21 @@
 nav {
     transition: all 0.3s;
+    position: relative;
+    z-index: 200;
+    box-shadow: 0 0 0;
 }
 
-.nav--open {
-    height: 130px;
+.nav-extension {
+    position: relative;
+    background-color: #6a1b9a;
+    height: 65px;
+    transition: transform 0.3s;
+    z-index: 100;
+    top: -65px;
+}
+
+.nav-extension--open{
+    transform: translateY(65px);
 }
 
 .nav__flex {
@@ -36,4 +48,5 @@ nav {
 
 .nav__search-container {
     text-align: center;
+    padding-top: 10px;
 }
