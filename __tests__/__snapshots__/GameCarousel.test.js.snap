@@ -11,7 +11,7 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
     onClick={[Function]}
     type="button"
   >
-    Back
+    &lt;
   </button>
   <div
     aria-live="polite"
@@ -49,7 +49,7 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
           role="option"
           style={
             Object {
-              "paddingBottom": "16.666666666666668%",
+              "paddingBottom": "22.22222222222222%",
               "width": "33.333333333333336%",
             }
           }
@@ -115,7 +115,7 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
           role="option"
           style={
             Object {
-              "paddingBottom": "16.666666666666668%",
+              "paddingBottom": "22.22222222222222%",
               "width": "33.333333333333336%",
             }
           }
@@ -181,7 +181,7 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
           role="option"
           style={
             Object {
-              "paddingBottom": "16.666666666666668%",
+              "paddingBottom": "22.22222222222222%",
               "width": "33.333333333333336%",
             }
           }
@@ -248,7 +248,7 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
     onClick={[Function]}
     type="button"
   >
-    Next
+    &gt;
   </button>
 </div>
 `;

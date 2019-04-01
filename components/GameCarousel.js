@@ -13,13 +13,13 @@ import '../css/game-carousel.css';
 
 const GameCarousel = ({ games }) => (
   <CarouselProvider
-    naturalSlideWidth={200}
+    naturalSlideWidth={150}
     naturalSlideHeight={100}
     totalSlides={games.length}
     visibleSlides={4}
     className="game-carousel"
   >
-    <ButtonBack className="game-carousel__button">Back</ButtonBack>
+    <ButtonBack className="game-carousel__button">&lt;</ButtonBack>
     <Slider>
       {games.map((game, i) => (
         <Slide
@@ -40,7 +40,7 @@ const GameCarousel = ({ games }) => (
         </Slide>
       ))}
     </Slider>
-    <ButtonNext className="game-carousel__button">Next</ButtonNext>
+    <ButtonNext className="game-carousel__button">&gt;</ButtonNext>
   </CarouselProvider>
 );
 
