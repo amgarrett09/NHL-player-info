@@ -71,6 +71,12 @@ const PlayerSearch = ({ id }) => {
     />
   );
 
+  const menuStyle = {
+    maxHeight: '200px',
+    overflow: 'auto',
+    boxShadow: '0 2px 12px rgba(0, 0, 0, 0.1)',
+  };
+
   return (
     <Autocomplete
       open={menuOpen}
@@ -91,6 +97,7 @@ const PlayerSearch = ({ id }) => {
       onChange={update}
       onSelect={select}
       renderInput={input}
+      menuStyle={menuStyle}
     />
   );
 };
