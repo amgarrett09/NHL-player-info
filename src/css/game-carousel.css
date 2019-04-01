@@ -5,6 +5,7 @@
     display: grid;
     grid-template-columns: 1fr 30fr 1fr;
     grid-template-rows: 1fr;
+    max-width: 900px;
 }
 
 .game-carousel__slider {
@@ -14,4 +15,11 @@
 .game-carousel__button {
     width: 50px;
     padding: 0;
+    border: none;
+    background-color: #6a1b9a;
+    color: white;
+}
+
+.game-carousel__button:hover {
+    background-color: #ab47bc;
 }
