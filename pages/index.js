@@ -3,6 +3,11 @@ import Head from 'next/head';
 
 import PlayerList from '../components/PlayerList';
 import DivisionStandings from '../components/DivisionStandings';
+import withGameState from '../components/higher-order/withGameState';
+import GameCarousel from '../components/GameCarousel';
+import { Desktop } from '../components/DefaultMediaBreakpoints';
+
+const TodaysGames = withGameState(GameCarousel);
 
 const Index = () => (
   <React.Fragment>
@@ -16,6 +21,12 @@ const Index = () => (
     <main>
       <div className="container">
         <PlayerList />
+        <Desktop>
+          <section>
+            <h2>Today&#39;s Games</h2>
+            <TodaysGames />
+          </section>
+        </Desktop>
         <DivisionStandings />
       </div>
     </main>

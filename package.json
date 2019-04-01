@@ -12,21 +12,20 @@
   "author": "Alex Garrett",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.3.4",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.5.0",
-    "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.11.2",
-    "enzyme-to-json": "^3.3.5",
+    "babel-jest": "^24.1.0",
+    "enzyme": "^3.4.3",
+    "enzyme-adapter-react-16": "^1.2.0",
     "eslint": "^5.14.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
-    "jest": "^24.1.0"
-  },
-  "jest": {
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
-    "setupFiles": ["./src/setupTests.js"]
+    "jest": "^24.1.0",
+    "jest-transform-css": "^2.0.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^16.4.2"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
@@ -35,6 +34,7 @@
     "lodash.debounce": "^4.0.8",
     "next": "^8.0.3",
     "prop-types": "^15.7.2",
+    "pure-react-carousel": "^1.19.0",
     "react": "^16.8.3",
     "react-autocomplete": "^1.8.1",
     "react-dom": "^16.8.3",
