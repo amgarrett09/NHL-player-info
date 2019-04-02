@@ -11,15 +11,37 @@ const withGameState = WrappedComponent => (props) => {
     const json = await res.json();
     const gamesData = json.dates[0].games;
 
+    // Use API data to return a concise game state
+    const getGameState = (game) => {
+      const stateCode = game.status.statusCode;
+      const { detailedState } = game.status;
+      const gameTime = game.gameDate.slice(11, 16);
+
+      if (detailedState === 'Final') {
+        return 'Final';
+      } if (detailedState === 'Live') {
+        switch (stateCode) {
+          case '1':
+            return '1ST';
+          case '2':
+            return '2ND';
+          case '3':
+            return '3RD';
+          default:
+            return '';
+        }
+      } else {
+        return gameTime;
+      }
+    };
+
     // Prepare data in a way that's easier for wrapped components to work with
     const out = gamesData.map(game => ({
       awayTeam: game.teams.away.team.name,
       awayScore: game.teams.away.score,
       homeTeam: game.teams.home.team.name,
       homeScore: game.teams.home.score,
-      gameState: game.status.detailedState,
-      stateCode: game.status.statusCode,
-      gameTime: game.gameDate.slice(11, 16),
+      gameState: getGameState(game),
     }));
 
     setGames(out);

@@ -11,11 +11,13 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
     onClick={[Function]}
     type="button"
   >
-    &lt;
+    <strong>
+      &lt;
+    </strong>
   </button>
   <div
     aria-live="polite"
-    className="horizontalSlider___281Ls carousel__slider carousel__slider--horizontal"
+    className="horizontalSlider___281Ls carousel__slider carousel__slider--horizontal game-carousel__slider"
     onKeyDown={[Function]}
     role="listbox"
     style={Object {}}
@@ -42,7 +44,7 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
       >
         <li
           aria-selected={true}
-          className="slide___3-Nqo slideHorizontal___1NzNV carousel__slide carousel__slide--visible game-carousel__slider"
+          className="slide___3-Nqo slideHorizontal___1NzNV carousel__slide carousel__slide--visible"
           data-test="slide"
           onBlur={[Function]}
           onFocus={[Function]}
@@ -69,13 +71,13 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
                 >
                   <div
                     className="col s6"
-                    data-test="team-name"
+                    data-test="away-team-name"
                   >
                     DET
                   </div>
                   <div
                     className="col s6"
-                    data-test="team-score"
+                    data-test="away-team-score"
                   >
                     5
                   </div>
@@ -85,13 +87,13 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
                 >
                   <div
                     className="col s6"
-                    data-test="team-name"
+                    data-test="home-team-name"
                   >
                     BUF
                   </div>
                   <div
                     className="col s6"
-                    data-test="team-score"
+                    data-test="home-team-score"
                   >
                     4
                   </div>
@@ -101,14 +103,14 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
                 className="game-info__game-state"
                 data-test="game-status"
               >
-                20:00
+                FINAL
               </div>
             </div>
           </div>
         </li>
         <li
           aria-selected={true}
-          className="slide___3-Nqo slideHorizontal___1NzNV carousel__slide carousel__slide--visible game-carousel__slider"
+          className="slide___3-Nqo slideHorizontal___1NzNV carousel__slide carousel__slide--visible"
           data-test="slide"
           onBlur={[Function]}
           onFocus={[Function]}
@@ -135,13 +137,13 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
                 >
                   <div
                     className="col s6"
-                    data-test="team-name"
+                    data-test="away-team-name"
                   >
                     CHI
                   </div>
                   <div
                     className="col s6"
-                    data-test="team-score"
+                    data-test="away-team-score"
                   >
                     3
                   </div>
@@ -151,13 +153,13 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
                 >
                   <div
                     className="col s6"
-                    data-test="team-name"
+                    data-test="home-team-name"
                   >
                     WIN
                   </div>
                   <div
                     className="col s6"
-                    data-test="team-score"
+                    data-test="home-team-score"
                   >
                     4
                   </div>
@@ -174,7 +176,7 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
         </li>
         <li
           aria-selected={true}
-          className="slide___3-Nqo slideHorizontal___1NzNV carousel__slide carousel__slide--visible game-carousel__slider"
+          className="slide___3-Nqo slideHorizontal___1NzNV carousel__slide carousel__slide--visible"
           data-test="slide"
           onBlur={[Function]}
           onFocus={[Function]}
@@ -201,13 +203,13 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
                 >
                   <div
                     className="col s6"
-                    data-test="team-name"
+                    data-test="away-team-name"
                   >
                     SJS
                   </div>
                   <div
                     className="col s6"
-                    data-test="team-score"
+                    data-test="away-team-score"
                   >
                     2
                   </div>
@@ -217,13 +219,13 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
                 >
                   <div
                     className="col s6"
-                    data-test="team-name"
+                    data-test="home-team-name"
                   >
                     ARI
                   </div>
                   <div
                     className="col s6"
-                    data-test="team-score"
+                    data-test="home-team-score"
                   >
                     1
                   </div>
@@ -248,7 +250,9 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
     onClick={[Function]}
     type="button"
   >
-    &gt;
+    <strong>
+      &gt;
+    </strong>
   </button>
 </div>
 `;
