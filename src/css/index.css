@@ -2,3 +2,7 @@
     text-align: center;
     font-size: 1.5rem;
 }
+
+.index__carousel {
+    min-height: 200px;
+}
