@@ -7,6 +7,8 @@ import withGameState from '../components/higher-order/withGameState';
 import GameCarousel from '../components/GameCarousel';
 import { Desktop } from '../components/DefaultMediaBreakpoints';
 
+import '../css/index.css';
+
 const TodaysGames = withGameState(GameCarousel);
 
 const Index = () => (
@@ -20,11 +22,16 @@ const Index = () => (
     </Head>
     <main>
       <div className="container">
+        <div className="index__description">
+          <p>A quick and readable reference for NHL stats.</p>
+        </div>
         <PlayerList />
         <Desktop>
           <section>
             <h2>Today&#39;s Games</h2>
-            <TodaysGames />
+            <div className="centered">
+              <TodaysGames />
+            </div>
           </section>
         </Desktop>
         <DivisionStandings />

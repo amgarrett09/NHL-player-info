@@ -13,26 +13,18 @@ const withGameState = WrappedComponent => (props) => {
 
     // Use API data to return a concise game state
     const getGameState = (game) => {
-      const stateCode = game.status.statusCode;
       const { detailedState } = game.status;
       const gameTime = game.gameDate.slice(11, 16);
 
       if (detailedState === 'Final') {
         return 'Final';
-      } if (detailedState === 'Live') {
-        switch (stateCode) {
-          case '1':
-            return '1ST';
-          case '2':
-            return '2ND';
-          case '3':
-            return '3RD';
-          default:
-            return '';
-        }
-      } else {
-        return gameTime;
       }
+
+      if (detailedState === 'In Progress') {
+        return 'Live';
+      }
+
+      return gameTime;
     };
 
     // Prepare data in a way that's easier for wrapped components to work with
