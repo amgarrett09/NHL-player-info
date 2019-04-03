@@ -13,21 +13,20 @@ import '../css/game-carousel.css';
 
 const GameCarousel = ({ games }) => (
   <CarouselProvider
-    naturalSlideWidth={150}
+    naturalSlideWidth={175}
     naturalSlideHeight={100}
     totalSlides={games.length}
-    visibleSlides={4}
+    visibleSlides={games.length > 4 ? 4 : games.length}
     className="game-carousel"
   >
     <ButtonBack className="game-carousel__button">
       <strong>&lt;</strong>
     </ButtonBack>
-    <Slider>
+    <Slider className="game-carousel__slider">
       {games.map((game, i) => (
         <Slide
           key={game.awayTeam + game.homeTeam}
           index={i}
-          className="game-carousel__slider"
           data-test="slide"
         >
           <GameInfo
@@ -56,8 +55,6 @@ GameCarousel.propTypes = {
       homeTeam: PropTypes.string,
       homeScore: PropTypes.number,
       gameState: PropTypes.string,
-      stateCode: PropTypes.string,
-      gameTime: PropTypes.string,
     }),
   ).isRequired,
 };

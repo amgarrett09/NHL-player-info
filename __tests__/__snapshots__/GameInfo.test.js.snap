@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GameInfo should not change unexpectedly 1`] = `
+exports[`GameInfo should render and should not change unexpectedly 1`] = `
 <div
   className="game-info"
 >
@@ -12,15 +12,15 @@ exports[`GameInfo should not change unexpectedly 1`] = `
     >
       <div
         className="col s6"
-        data-test="team-name"
+        data-test="away-team-name"
       >
-        DET
+        BUF
       </div>
       <div
         className="col s6"
-        data-test="team-score"
+        data-test="away-team-score"
       >
-        5
+        4
       </div>
     </div>
     <div
@@ -28,15 +28,15 @@ exports[`GameInfo should not change unexpectedly 1`] = `
     >
       <div
         className="col s6"
-        data-test="team-name"
+        data-test="home-team-name"
       >
-        BUF
+        DET
       </div>
       <div
         className="col s6"
-        data-test="team-score"
+        data-test="home-team-score"
       >
-        4
+        5
       </div>
     </div>
   </div>
@@ -44,7 +44,7 @@ exports[`GameInfo should not change unexpectedly 1`] = `
     className="game-info__game-state"
     data-test="game-status"
   >
-    3RD
+    Final
   </div>
 </div>
 `;

@@ -29,27 +29,38 @@ const DivisionStandings = () => {
   return (
     <React.Fragment>
       {loaded && (
-        <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
+        <Spring
+          from={{ opacity: 0, transform: 'translateY(-20px)' }}
+          to={{ opacity: 1, transform: 'translateY(0)' }}
+        >
           {springProps => (
             <div style={springProps}>
               <h2>Division Standings</h2>
               <div className="row">
                 <div className="col s12 m6">
-                  <h3><strong>{standings[2].division.name}</strong></h3>
+                  <h3>
+                    <strong>{standings[2].division.name}</strong>
+                  </h3>
                   <DivisionTable division={standings[2]} />
                 </div>
                 <div className="col s12 m6">
-                  <h3><strong>{standings[0].division.name}</strong></h3>
+                  <h3>
+                    <strong>{standings[0].division.name}</strong>
+                  </h3>
                   <DivisionTable division={standings[0]} />
                 </div>
               </div>
               <div className="row">
                 <div className="col s12 m6">
-                  <h3><strong>{standings[3].division.name}</strong></h3>
+                  <h3>
+                    <strong>{standings[3].division.name}</strong>
+                  </h3>
                   <DivisionTable division={standings[3]} />
                 </div>
                 <div className="col s12 m6">
-                  <h3><strong>{standings[1].division.name}</strong></h3>
+                  <h3>
+                    <strong>{standings[1].division.name}</strong>
+                  </h3>
                   <DivisionTable division={standings[1]} />
                 </div>
               </div>
