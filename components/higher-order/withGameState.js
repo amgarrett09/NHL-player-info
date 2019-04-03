@@ -14,7 +14,14 @@ const withGameState = WrappedComponent => (props) => {
     // Use API data to return a concise game state
     const getGameState = (game) => {
       const { detailedState } = game.status;
-      const gameTime = game.gameDate.slice(11, 16);
+      let gameTime = game.gameDate.slice(11, 16);
+
+      // Converting time to Eastern
+      let hours = parseInt(gameTime.slice(0, 2), 10) - 4;
+      hours = hours < 0 ? hours + 24 : hours;
+      const minutes = gameTime.slice(3, 5);
+
+      gameTime = `${hours}:${minutes} ET`;
 
       if (detailedState === 'Final') {
         return 'Final';

@@ -13,10 +13,10 @@ import '../css/game-carousel.css';
 
 const GameCarousel = ({ games }) => (
   <CarouselProvider
-    naturalSlideWidth={150}
+    naturalSlideWidth={175}
     naturalSlideHeight={100}
     totalSlides={games.length}
-    visibleSlides={4}
+    visibleSlides={games.length > 4 ? 4 : games.length}
     className="game-carousel"
   >
     <ButtonBack className="game-carousel__button">
