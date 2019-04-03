@@ -35,8 +35,8 @@ const Index = () => (
             <h2>Today&#39;s Games</h2>
             <div className="centered">
               <Spring
-                from={{ transform: 'translateX(-100%)' }}
-                to={{ transform: 'translateX(0)' }}
+                from={{ opacity: 0, transform: 'translateY(-20px)' }}
+                to={{ opacity: 1, transform: 'translateY(0)' }}
               >
                 {springprops => (
                   <div style={springprops}>
