@@ -4,8 +4,6 @@ import Head from 'next/head';
 import { Spring } from 'react-spring';
 import PlayerList from '../components/PlayerList';
 import DivisionStandings from '../components/DivisionStandings';
-<<<<<<< HEAD
-=======
 import withGameState from '../components/higher-order/withGameState';
 import GameCarousel from '../components/GameCarousel';
 import { Desktop } from '../components/DefaultMediaBreakpoints';
@@ -13,7 +11,6 @@ import { Desktop } from '../components/DefaultMediaBreakpoints';
 import '../css/index.css';
 
 const TodaysGames = withGameState(GameCarousel);
->>>>>>> todays-games
 
 const Index = () => (
   <React.Fragment>
@@ -33,8 +30,6 @@ const Index = () => (
           <p>A quick and readable reference for NHL stats.</p>
         </div>
         <PlayerList />
-<<<<<<< HEAD
-=======
         <Desktop>
           <section className="index__carousel">
             <h2>Today&#39;s Games</h2>
@@ -52,7 +47,6 @@ const Index = () => (
             </div>
           </section>
         </Desktop>
->>>>>>> todays-games
         <DivisionStandings />
       </div>
     </main>
