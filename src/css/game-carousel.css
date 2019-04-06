@@ -24,3 +24,8 @@
 .game-carousel__button:hover {
     background-color: #ab47bc;
 }
+
+.game-carousel__button:disabled {
+    background-color: #bdbdbd;
+    cursor: default;
+}
