@@ -12,39 +12,47 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 import '../css/game-carousel.css';
 
 const GameCarousel = ({ games }) => (
-  <CarouselProvider
-    naturalSlideWidth={175}
-    naturalSlideHeight={100}
-    totalSlides={games.length}
-    visibleSlides={games.length > 4 ? 4 : games.length}
-    className="game-carousel"
-  >
-    <ButtonBack className="game-carousel__button">
-      <strong>&lt;</strong>
-    </ButtonBack>
-    <Slider className="game-carousel__slider">
-      {games.map((game, i) => (
-        <Slide
-          key={game.awayTeam + game.homeTeam}
-          index={i}
-          data-test="slide"
-        >
-          <GameInfo
-            awayTeam={game.awayTeam}
-            awayScore={game.awayScore}
-            homeTeam={game.homeTeam}
-            homeScore={game.homeScore}
-            gameState={game.gameState}
-            stateCode={game.stateCode}
-            gameTime={game.gameTime}
-          />
-        </Slide>
-      ))}
-    </Slider>
-    <ButtonNext className="game-carousel__button">
-      <strong>&gt;</strong>
-    </ButtonNext>
-  </CarouselProvider>
+  <React.Fragment>
+    {games.length > 0 && (
+    <CarouselProvider
+      naturalSlideWidth={175}
+      naturalSlideHeight={100}
+      totalSlides={games.length}
+      visibleSlides={games.length > 4 ? 4 : games.length}
+      className="game-carousel"
+    >
+      <ButtonBack className="game-carousel__button">
+        <strong>&lt;</strong>
+      </ButtonBack>
+      <Slider className="game-carousel__slider">
+        {games.map((game, i) => (
+          <Slide
+            key={game.awayTeam + game.homeTeam}
+            index={i}
+            data-test="slide"
+          >
+            <GameInfo
+              awayTeam={game.awayTeam}
+              awayScore={game.awayScore}
+              homeTeam={game.homeTeam}
+              homeScore={game.homeScore}
+              gameState={game.gameState}
+              stateCode={game.stateCode}
+              gameTime={game.gameTime}
+            />
+          </Slide>
+        ))}
+      </Slider>
+      <ButtonNext className="game-carousel__button">
+        <strong>&gt;</strong>
+      </ButtonNext>
+    </CarouselProvider>
+    )}
+
+    {games.length === 0 && (
+      <p><em>None today</em></p>
+    )}
+  </React.Fragment>
 );
 
 GameCarousel.propTypes = {

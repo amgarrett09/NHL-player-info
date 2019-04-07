@@ -33,7 +33,7 @@ const Index = () => (
         <Desktop>
           <section className="index__carousel">
             <h2>Today&#39;s Games</h2>
-            <div className="centered">
+            <div style={{ textAlign: 'center' }}>
               <Spring
                 from={{ opacity: 0, transform: 'translateY(-20px)' }}
                 to={{ opacity: 1, transform: 'translateY(0)' }}
