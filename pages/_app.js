@@ -16,13 +16,13 @@ class MyApp extends App {
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, router } = this.props;
 
     return (
       <Container>
         <Layout>
-          <PageTransition timeout={300} classNames="page-transition">
-            <Component {...pageProps} />
+          <PageTransition timeout={200} classNames="page-transition">
+            <Component {...pageProps} key={router.route} />
           </PageTransition>
         </Layout>
         <style jsx global>
@@ -34,14 +34,14 @@ class MyApp extends App {
           .page-transition-enter-active {
             opacity: 1;
             transform: translateY(0px);
-            transition: opacity 300ms, transform 300ms;
+            transition: opacity 200ms, transform 200ms;
           }
           .page-transition-exit {
             opacity: 1;
           }
           .page-transition-exit-active {
             opacity: 0;
-            transition: opacity 300ms;
+            transition: opacity 200ms;
           }
         `}
         </style>
