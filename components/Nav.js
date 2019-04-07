@@ -6,7 +6,7 @@ import '../css/nav.css';
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
-  const [div, setDiv] = useState(null);
+  let div;
 
   /* Used on mobile nav to restore correct class if user switches between mobile
   and desktop layouts */
@@ -60,7 +60,7 @@ const Nav = () => {
         </nav>
         <div
           className={open ? openClass : closedClass}
-          ref={e => setDiv(e)}
+          ref={(e) => { div = e; }}
         >
           {open && (
           <div className="nav__search-container">
