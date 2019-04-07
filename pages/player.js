@@ -217,44 +217,32 @@ Player.getInitialProps = async ({ query }) => {
     person = null;
   }
 
-  // fetch season stats
+  // fetch stats
   let seasonStats;
   let careerSeason;
-
-  try {
-    const seasonRes = await StatsService.getSeasonStats(query.id);
-    seasonStats = seasonRes.data.stats[0].splits.filter(
-      obj => obj.league.name === 'National Hockey League',
-    );
-    careerSeason = seasonRes.data.stats[1].splits[0].stat;
-  } catch (err) {
-    seasonStats = [];
-    careerSeason = {};
-  }
-
-  // fetch playoff stats
   let playoffStats;
   let careerPlayoffs;
-
-  try {
-    const playoffRes = await StatsService.getPlayoffStats(query.id);
-    playoffStats = playoffRes.data.stats[0].splits.filter(
-      obj => obj.league.name === 'National Hockey League',
-    );
-    careerPlayoffs = playoffRes.data.stats[1].splits[0].stat;
-  } catch (err) {
-    playoffStats = [];
-    careerPlayoffs = {};
-  }
-
-  // fetch last five games
   let lastFive;
 
   try {
-    const logRes = await StatsService.getGameLog(query.id);
-    lastFive = logRes.data.stats[0].splits.slice(0, 5);
+    const res = await StatsService.getCombinedStats(query.id);
+
+    // Season stats
+    seasonStats = res.data.stats[0].splits.filter(split => (
+      split.league.name === 'National Hockey League'
+    ));
+    careerSeason = res.data.stats[1].splits[0].stat;
+
+    // Playoff stats
+    playoffStats = res.data.stats[2].splits.filter(split => (
+      split.league.name === 'National Hockey League'
+    ));
+    careerPlayoffs = res.data.stats[3].splits.stat;
+
+    // Last five games
+    lastFive = res.data.stats[4].splits.slice(0, 5);
   } catch (err) {
-    lastFive = [];
+    console.log(err);
   }
 
   return {

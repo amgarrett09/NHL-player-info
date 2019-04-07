@@ -22,4 +22,7 @@ export default {
   getGameLog(id) {
     return apiClient.get(`/${id}/stats?stats=gameLog`);
   },
+  getCombinedStats(id) {
+    return apiClient.get(`/${id}/stats?stats=yearByYear,careerRegularSeason,yearByYearPlayoffs,careerPlayoffs,gameLog`);
+  },
 };
