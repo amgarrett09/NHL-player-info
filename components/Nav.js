@@ -6,6 +6,7 @@ import '../css/nav.css';
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
+  const [div, setDiv] = useState(null);
 
   /* Used on mobile nav to restore correct class if user switches between mobile
   and desktop layouts */
@@ -15,9 +16,7 @@ const Nav = () => {
   const toggleNav = (e) => {
     e.preventDefault();
 
-    document
-      .querySelector('.nav-extension')
-      .classList.toggle('nav-extension--open');
+    div.classList.toggle('nav-extension--open');
     if (open) {
       setOpen(false);
     } else {
@@ -59,7 +58,10 @@ const Nav = () => {
             </button>
           </div>
         </nav>
-        <div className={open ? openClass : closedClass}>
+        <div
+          className={open ? openClass : closedClass}
+          ref={e => setDiv(e)}
+        >
           {open && (
           <div className="nav__search-container">
             <PlayerSearch id="player-search" />
