@@ -27,3 +27,9 @@
         width: 67vw;
     }
 }
+
+@media (max-width: 797px) {
+    .scrolling-head {
+        display: none;
+    }
+}

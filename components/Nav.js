@@ -14,6 +14,7 @@ const Nav = () => {
 
   const toggleNav = (e) => {
     e.preventDefault();
+
     document
       .querySelector('.nav-extension')
       .classList.toggle('nav-extension--open');

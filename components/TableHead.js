@@ -4,7 +4,6 @@ import debounce from 'lodash.debounce';
 
 import SkaterTable from './SkaterTable';
 import GoalieTable from './GoalieTable';
-
 import '../css/table-head.css';
 
 /* A table head that follows user on scoll to make tables easier to read
@@ -58,13 +57,15 @@ const TableHead = ({
   }, []);
 
   return (
-    <div className="scrolling-head" id={headId}>
-      {/* Loading full tables with stats to make sure the labels line up
+    <React.Fragment>
+      <div className="scrolling-head" id={headId}>
+        {/* Loading full tables with stats to make sure the labels line up
       with the table that's on the page. The actual stats will not be visible.
       Not ideal, but it works */}
-      {pos === 'Skater' && <SkaterTable stats={stats} career={career} />}
-      {pos === 'Goalie' && <GoalieTable stats={stats} career={career} />}
-    </div>
+        {pos === 'Skater' && <SkaterTable stats={stats} career={career} />}
+        {pos === 'Goalie' && <GoalieTable stats={stats} career={career} />}
+      </div>
+    </React.Fragment>
   );
 };
 

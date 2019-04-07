@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import StatsService from '../services/StatsService';
-
 import PlayerStats from '../components/PlayerStats';
 import LastFiveGames from '../components/LastFiveGames';
 import TableHead from '../components/TableHead';
