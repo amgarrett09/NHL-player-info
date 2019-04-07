@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import fetch from 'isomorphic-unfetch';
 import Head from 'next/head';
+import StatsService from '../services/StatsService';
 
-import SeasonStats from '../components/SeasonStats';
-import PlayoffStats from '../components/PlayoffStats';
+import PlayerStats from '../components/PlayerStats';
 import LastFiveGames from '../components/LastFiveGames';
+import TableHead from '../components/TableHead';
 
 import '../css/player.css';
 
@@ -19,16 +19,27 @@ const Player = ({
   weight,
   nationality,
   active,
+  seasonStats,
+  careerSeason,
+  playoffStats,
+  careerPlayoffs,
+  lastFive,
 }) => {
   if (id === '') {
     return (
       <React.Fragment>
         <Head>
           <meta charSet="UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
           <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
           <title>Invalid ID - Hockey Scrub</title>
-          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+          <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+          />
         </Head>
         <main>
           <h1>Invalid player id</h1>
@@ -44,7 +55,10 @@ const Player = ({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
         <title>{`${name} - Hockey Scrub`}</title>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"
+        />
       </Head>
 
       <main>
@@ -58,24 +72,66 @@ const Player = ({
             <p>{`${height} • ${weight} lbs • ${nationality}`}</p>
           </section>
 
-          {/* 'top-block' class helps prevent flickering */}
-          <section className="top-block">
-            {active && <LastFiveGames id={id} position={position} />}
-            {!active && <SeasonStats playerId={id} position={position} id="season-stats" />}
+          <section>
+            {active && lastFive.length > 0 && (
+              <LastFiveGames games={lastFive} position={position} />
+            )}
+            {!active && seasonStats.length > 0 && (
+              <React.Fragment>
+                <TableHead
+                  stats={seasonStats}
+                  career={careerSeason}
+                  position={position}
+                  targetId="season-stats"
+                />
+                <PlayerStats
+                  position={position}
+                  stats={seasonStats}
+                  career={careerSeason}
+                  id="season-stats"
+                  title="Regular Season Stats"
+                />
+              </React.Fragment>
+            )}
           </section>
 
-          {active && (
+          {active && seasonStats.length > 0 && (
             <section>
-              <SeasonStats playerId={id} position={position} id="season-stats" />
+              <TableHead
+                stats={seasonStats}
+                career={careerSeason}
+                position={position}
+                targetId="season-stats"
+              />
+              <PlayerStats
+                position={position}
+                stats={seasonStats}
+                career={careerSeason}
+                id="season-stats"
+                title="Regular Season Stats"
+              />
             </section>
           )}
 
-          <section>
-            <PlayoffStats playerId={id} position={position} id="playoff-stats" />
-          </section>
+          {playoffStats.length > 0 && (
+            <section>
+              <TableHead
+                stats={playoffStats}
+                career={careerPlayoffs}
+                position={position}
+                targetId="playoff-stats"
+              />
+              <PlayerStats
+                position={position}
+                stats={playoffStats}
+                career={careerPlayoffs}
+                id="playoff-stats"
+                title="Playoff Stats"
+              />
+            </section>
+          )}
         </div>
       </main>
-
     </React.Fragment>
   );
 };
@@ -90,6 +146,31 @@ Player.propTypes = {
   weight: PropTypes.number,
   nationality: PropTypes.string,
   active: PropTypes.bool,
+  seasonStats: PropTypes.arrayOf(
+    PropTypes.shape({
+      season: PropTypes.string,
+    }),
+  ),
+  careerSeason: PropTypes.shape({
+    stat: PropTypes.shape({
+      timeOnIce: PropTypes.string,
+    }),
+  }),
+  playoffStats: PropTypes.arrayOf(
+    PropTypes.shape({
+      season: PropTypes.string,
+    }),
+  ),
+  careerPlayoffs: PropTypes.shape({
+    stat: PropTypes.shape({
+      timeOnIce: PropTypes.string,
+    }),
+  }),
+  lastFive: PropTypes.arrayOf(
+    PropTypes.shape({
+      season: PropTypes.string,
+    }),
+  ),
 };
 
 Player.defaultProps = {
@@ -102,16 +183,28 @@ Player.defaultProps = {
   weight: undefined,
   nationality: '',
   active: false,
+  seasonStats: [],
+  careerSeason: {},
+  playoffStats: [],
+  careerPlayoffs: {},
+  lastFive: [],
 };
 
 Player.getInitialProps = async ({ query }) => {
+  // fetch basic info
+  let fullName = '';
+  let primaryPosition = '';
+  let shootsCatches = '';
+  let height = '';
+  let weight = '';
+  let nationality = '';
+  let active = '';
+  let person;
+
   try {
-    const res = await fetch(
-      `https://statsapi.web.nhl.com/api/v1/people/${query.id}`,
-    );
-    const json = await res.json();
-    const [person] = json.people;
-    const {
+    const basicRes = await StatsService.getBasicInfo(query.id);
+    [person] = basicRes.data.people;
+    ({
       fullName,
       primaryPosition,
       shootsCatches,
@@ -119,22 +212,67 @@ Player.getInitialProps = async ({ query }) => {
       weight,
       nationality,
       active,
-    } = person;
-
-    return {
-      id: query.id,
-      name: fullName,
-      position: primaryPosition.name,
-      currentTeam: person.currentTeam ? person.currentTeam.name : null,
-      shootsCatches,
-      height,
-      weight,
-      nationality,
-      active,
-    };
+    } = person);
   } catch (err) {
-    return {};
+    person = null;
   }
+
+  // fetch season stats
+  let seasonStats;
+  let careerSeason;
+
+  try {
+    const seasonRes = await StatsService.getSeasonStats(query.id);
+    seasonStats = seasonRes.data.stats[0].splits.filter(
+      obj => obj.league.name === 'National Hockey League',
+    );
+    careerSeason = seasonRes.data.stats[1].splits[0].stat;
+  } catch (err) {
+    seasonStats = [];
+    careerSeason = {};
+  }
+
+  // fetch playoff stats
+  let playoffStats;
+  let careerPlayoffs;
+
+  try {
+    const playoffRes = await StatsService.getPlayoffStats(query.id);
+    playoffStats = playoffRes.data.stats[0].splits.filter(
+      obj => obj.league.name === 'National Hockey League',
+    );
+    careerPlayoffs = playoffRes.data.stats[1].splits[0].stat;
+  } catch (err) {
+    playoffStats = [];
+    careerPlayoffs = {};
+  }
+
+  // fetch last five games
+  let lastFive;
+
+  try {
+    const logRes = await StatsService.getGameLog(query.id);
+    lastFive = logRes.data.stats[0].splits.slice(0, 5);
+  } catch (err) {
+    lastFive = [];
+  }
+
+  return {
+    id: query.id,
+    name: fullName,
+    position: primaryPosition.name,
+    currentTeam: person.currentTeam ? person.currentTeam.name : null,
+    shootsCatches,
+    height,
+    weight,
+    nationality,
+    active,
+    seasonStats,
+    careerSeason,
+    playoffStats,
+    careerPlayoffs,
+    lastFive,
+  };
 };
 
 export default Player;

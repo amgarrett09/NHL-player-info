@@ -1,6 +1,6 @@
 {
   "name": "hockey-scrub",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Stats app for NHL players",
   "main": "server.js",
   "scripts": {
@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
+    "axios": "^0.18.0",
     "express": "^4.16.4",
     "isomorphic-unfetch": "^3.0.0",
     "lodash.debounce": "^4.0.8",

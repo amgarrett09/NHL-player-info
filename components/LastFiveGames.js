@@ -1,36 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import fetch from 'isomorphic-unfetch';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Spring } from 'react-spring';
 
 import '../css/stats.css';
 
-const LastFiveGames = ({ id, position }) => {
-  const [games, setGames] = useState([]);
-  const [loaded, setLoaded] = useState(false);
-
-  const fetchData = async () => {
-    setLoaded(false);
-    try {
-      const res = await fetch(
-        `https://statsapi.web.nhl.com/api/v1/people/${id}/stats?stats=gameLog`,
-      );
-      const json = await res.json();
-
-      const out = json.stats[0].splits.slice(0, 5);
-
-      setGames(out);
-      setLoaded(true);
-    } catch (err) {
-      setGames([]);
-      setLoaded(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, [id]);
-
+const LastFiveGames = ({ position, games }) => {
   const skaterTable = (
     <div className="stat-card">
       <h2>Last Five Games</h2>
@@ -113,23 +86,17 @@ const LastFiveGames = ({ id, position }) => {
 
   return (
     <React.Fragment>
-      {loaded && (
-        <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
-          {springProps => (
-            <div style={springProps}>
-              {!isGoalie && skaterTable}
-              {isGoalie && goalieTable}
-            </div>
-          )}
-        </Spring>
-      )}
+      {!isGoalie && skaterTable}
+      {isGoalie && goalieTable}
     </React.Fragment>
   );
 };
 
 LastFiveGames.propTypes = {
-  id: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
+  games: PropTypes.arrayOf(PropTypes.shape({
+    season: PropTypes.string,
+  })).isRequired,
 };
 
 export default LastFiveGames;
