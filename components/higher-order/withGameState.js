@@ -27,7 +27,7 @@ const withGameState = WrappedComponent => (props) => {
         return 'Final';
       }
 
-      if (abstractGameState === 'In Progress') {
+      if (abstractGameState === 'Live') {
         return 'Live';
       }
 
