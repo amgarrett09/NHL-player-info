@@ -1,6 +1,6 @@
 {
   "name": "hockey-scrub",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "description": "Stats app for NHL players",
   "main": "server.js",
   "scripts": {
