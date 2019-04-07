@@ -85,24 +85,41 @@ const PlayerList = () => {
   return (
     <React.Fragment>
       <h1>Find active players</h1>
-
-      <select className="browser-default" onChange={showPlayers}>
-        <option value="">Select a team</option>
-        {teams.map(team => (
-          <option key={team.id} value={team.name}>
-            {team.name}
-          </option>
-        ))}
-      </select>
+      {/* eslint-disable-next-line */}
+      <label
+        htmlFor="select-team"
+        style={{ color: 'black', fontSize: '1.0rem' }}
+      >
+        Select a team
+        <select
+          id="select-team"
+          className="browser-default"
+          onChange={showPlayers}
+        >
+          <option value="">--</option>
+          {teams.map(team => (
+            <option key={team.id} value={team.name}>
+              {team.name}
+            </option>
+          ))}
+        </select>
+      </label>
       <br />
-      <select className="browser-default" id="choose-player">
-        <option value="">Choose a player</option>
-        {players.map(player => (
-          <option key={player.id} value={player.name}>
-            {player.name}
-          </option>
-        ))}
-      </select>
+      {/* eslint-disable-next-line */}
+      <label
+        htmlFor="choose-player"
+        style={{ color: 'black', fontSize: '1.0rem' }}
+      >
+        Choose a player
+        <select className="browser-default" id="choose-player">
+          <option value="">--</option>
+          {players.map(player => (
+            <option key={player.id} value={player.name}>
+              {player.name}
+            </option>
+          ))}
+        </select>
+      </label>
       <br />
       <button
         className="btn waves-effect waves-light"

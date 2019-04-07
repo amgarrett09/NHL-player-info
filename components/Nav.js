@@ -60,12 +60,16 @@ const Nav = () => {
         </nav>
         <div
           className={open ? openClass : closedClass}
-          ref={(e) => { div = e; }}
+          ref={(e) => {
+            div = e;
+          }}
         >
           {open && (
-          <div className="nav__search-container">
-            <PlayerSearch id="player-search" />
-          </div>
+            <div className="nav__search-container">
+              {/* eslint-disable-next-line */}
+              <label htmlFor="player-search">Search players</label>
+              <PlayerSearch id="player-search" />
+            </div>
           )}
         </div>
       </Mobile>
