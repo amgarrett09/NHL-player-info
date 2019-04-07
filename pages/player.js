@@ -7,8 +7,6 @@ import PlayerStats from '../components/PlayerStats';
 import LastFiveGames from '../components/LastFiveGames';
 import TableHead from '../components/TableHead';
 
-import '../css/player.css';
-
 const Player = ({
   id,
   name,
