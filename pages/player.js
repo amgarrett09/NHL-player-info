@@ -230,26 +230,38 @@ Player.getInitialProps = async ({ query }) => {
   let careerPlayoffs;
   let lastFive;
 
-  try {
-    const res = await StatsService.getCombinedStats(query.id);
 
-    // Season stats
+  const res = await StatsService.getCombinedStats(query.id);
+
+  // Season stats
+  try {
     seasonStats = res.data.stats[0].splits.filter(split => (
       split.league.name === 'National Hockey League'
     ));
     careerSeason = res.data.stats[1].splits[0].stat;
+  } catch (err) {
+    seasonStats = [];
+    careerSeason = {};
+  }
 
-    // Playoff stats
+  // Playoff stats
+  try {
     playoffStats = res.data.stats[2].splits.filter(split => (
       split.league.name === 'National Hockey League'
     ));
     careerPlayoffs = res.data.stats[3].splits.stat;
+  } catch (err) {
+    playoffStats = [];
+    careerPlayoffs = {};
+  }
 
-    // Last five games
+  // Last five games
+  try {
     lastFive = res.data.stats[4].splits.slice(0, 5);
   } catch (err) {
-    console.log(err);
+    lastFive = [];
   }
+
 
   return {
     id: query.id,
