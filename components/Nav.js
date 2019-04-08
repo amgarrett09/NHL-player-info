@@ -66,8 +66,6 @@ const Nav = () => {
         >
           {open && (
             <div className="nav__search-container">
-              {/* eslint-disable-next-line */}
-              <label htmlFor="player-search">Search players</label>
               <PlayerSearch id="player-search" />
             </div>
           )}
