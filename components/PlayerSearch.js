@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import fetch from 'isomorphic-unfetch';
 import PropTypes from 'prop-types';
 import Autocomplete from 'react-autocomplete';
 import Router from 'next/router';
 
 import config from '../config';
+import LoadingContext from '../context/LoadingContext';
 import '../css/player-search.css';
 
 const autocompleteUrl = config.AUTOCOMPLETE_URL;
@@ -14,6 +15,8 @@ const PlayerSearch = ({ id }) => {
   const [suggestions, setSuggestions] = useState([]);
   const [value, setValue] = useState('');
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const context = useContext(LoadingContext);
 
   // Update text field and get autocomplete suggestions
   const update = async (e) => {
@@ -56,6 +59,7 @@ const PlayerSearch = ({ id }) => {
       setMenuOpen(false);
 
       Router.push(`/player?id=${playerId}`);
+      context.setLoading();
     } catch (err) {
       setValue(val);
     }

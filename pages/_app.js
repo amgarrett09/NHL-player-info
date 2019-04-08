@@ -2,6 +2,7 @@ import React from 'react';
 import App, { Container } from 'next/app';
 import { PageTransition } from 'next-page-transitions';
 import Layout from '../components/Layout';
+import LoadingContext from '../context/LoadingContext';
 import '../css/materialize.css';
 
 class MyApp extends App {
@@ -15,18 +16,41 @@ class MyApp extends App {
     return { pageProps };
   }
 
+  // State for react context
+  state = {
+    loading: false,
+  }
+
+  setLoading = () => {
+    this.setState({
+      loading: true,
+    });
+  }
+
+  unsetLoading = () => {
+    this.setState({
+      loading: false,
+    });
+  }
+
   render() {
     const { Component, pageProps, router } = this.props;
 
     return (
       <Container>
-        <Layout>
-          <PageTransition timeout={200} classNames="page-transition">
-            <Component {...pageProps} key={router.route} />
-          </PageTransition>
-        </Layout>
-        <style jsx global>
-          {`
+        <LoadingContext.Provider value={{
+          loading: this.state.loading,
+          setLoading: this.setLoading,
+          unsetLoading: this.unsetLoading,
+        }}
+        >
+          <Layout>
+            <PageTransition timeout={200} classNames="page-transition">
+              <Component {...pageProps} key={router.route} />
+            </PageTransition>
+          </Layout>
+          <style jsx global>
+            {`
           .page-transition-enter {
             opacity: 0;
             transform: translateY(-20px);
@@ -45,7 +69,8 @@ class MyApp extends App {
           }
         `}
 
-        </style>
+          </style>
+        </LoadingContext.Provider>
       </Container>
     );
   }

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
+import LoadingContext from '../context/LoadingContext';
 import StatsService from '../services/StatsService';
 import PlayerStats from '../components/PlayerStats';
 import LastFiveGames from '../components/LastFiveGames';
 import TableHead from '../components/TableHead';
+import '../css/player.css';
 
 const Player = ({
   id,
@@ -22,6 +24,12 @@ const Player = ({
   careerPlayoffs,
   lastFive,
 }) => {
+  const context = useContext(LoadingContext);
+
+  useEffect(() => {
+    context.unsetLoading();
+  }, [id]);
+
   if (id === '') {
     return (
       <React.Fragment>
@@ -58,7 +66,8 @@ const Player = ({
         />
       </Head>
 
-      <main>
+      {/* eslint-disable-next-line react/destructuring-assignment */}
+      <main className={context.loading ? 'main--hidden' : 'main--visible'}>
         <div className="container">
           <section>
             <h1>{name}</h1>
