@@ -72,7 +72,7 @@ const PlayerSearch = ({ id }) => {
 
   const input = props => (
     <input
-      className="player-search"
+      className="input player-search"
       type="text"
       id={id}
       placeholder="Search players"
@@ -84,6 +84,7 @@ const PlayerSearch = ({ id }) => {
     maxHeight: '200px',
     overflow: 'auto',
     boxShadow: '0 2px 12px rgba(0, 0, 0, 0.1)',
+    position: 'fixed',
   };
 
   return (

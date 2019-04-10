@@ -5,7 +5,7 @@ import convertSeason from '../lib/convert-season';
 import teamAbbreviations from '../constants/constants';
 
 const GoalieTable = ({ stats, career }) => (
-  <table>
+  <table className="table is-narrow is-hoverable is-fullwidth">
     <thead>
       <tr>
         <th>Season</th>

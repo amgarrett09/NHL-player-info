@@ -5,7 +5,6 @@ import LoadingContext from '../context/LoadingContext';
 import StatsService from '../services/StatsService';
 import PlayerStats from '../components/PlayerStats';
 import LastFiveGames from '../components/LastFiveGames';
-import TableHead from '../components/TableHead';
 import '../css/player.css';
 
 const Player = ({
@@ -68,47 +67,22 @@ const Player = ({
 
       {/* eslint-disable-next-line react/destructuring-assignment */}
       <main className={context.loading ? 'main--hidden' : 'main--visible'}>
-        <div className="container">
-          <section>
-            <h1>{name}</h1>
-            <p>
-              <strong>{currentTeam}</strong>
-            </p>
-            <p>{`Position: ${position} • Shoots/Catches: ${shootsCatches}`}</p>
-            <p>{`${height} • ${weight} lbs • ${nationality}`}</p>
-          </section>
+        <section className="section">
+          <h1 className="title is-1">{name}</h1>
+          <p>
+            <strong>{currentTeam}</strong>
+          </p>
+          <p>{`Position: ${position} • Shoots/Catches: ${shootsCatches}`}</p>
+          <p>{`${height} • ${weight} lbs • ${nationality}`}</p>
+        </section>
 
-          <section>
+        <section className="section">
+          <div className="container is-fluid">
             {active && lastFive.length > 0 && (
-              <LastFiveGames games={lastFive} position={position} />
+            <LastFiveGames games={lastFive} position={position} />
             )}
             {!active && seasonStats.length > 0 && (
-              <React.Fragment>
-                <TableHead
-                  stats={seasonStats}
-                  career={careerSeason}
-                  position={position}
-                  targetId="season-stats"
-                />
-                <PlayerStats
-                  position={position}
-                  stats={seasonStats}
-                  career={careerSeason}
-                  id="season-stats"
-                  title="Regular Season Stats"
-                />
-              </React.Fragment>
-            )}
-          </section>
-
-          {active && seasonStats.length > 0 && (
-            <section>
-              <TableHead
-                stats={seasonStats}
-                career={careerSeason}
-                position={position}
-                targetId="season-stats"
-              />
+            <React.Fragment>
               <PlayerStats
                 position={position}
                 stats={seasonStats}
@@ -116,27 +90,36 @@ const Player = ({
                 id="season-stats"
                 title="Regular Season Stats"
               />
-            </section>
-          )}
+            </React.Fragment>
+            )}
+          </div>
+        </section>
 
-          {playoffStats.length > 0 && (
-            <section>
-              <TableHead
-                stats={playoffStats}
-                career={careerPlayoffs}
-                position={position}
-                targetId="playoff-stats"
-              />
-              <PlayerStats
-                position={position}
-                stats={playoffStats}
-                career={careerPlayoffs}
-                id="playoff-stats"
-                title="Playoff Stats"
-              />
-            </section>
-          )}
-        </div>
+        {active && seasonStats.length > 0 && (
+        <section className="section">
+          <div className="container is-fluid">
+            <PlayerStats
+              position={position}
+              stats={seasonStats}
+              career={careerSeason}
+              id="season-stats"
+              title="Regular Season Stats"
+            />
+          </div>
+        </section>
+        )}
+
+        {playoffStats.length > 0 && (
+        <section className="section">
+          <PlayerStats
+            position={position}
+            stats={playoffStats}
+            career={careerPlayoffs}
+            id="playoff-stats"
+            title="Playoff Stats"
+          />
+        </section>
+        )}
       </main>
     </React.Fragment>
   );

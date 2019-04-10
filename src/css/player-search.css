@@ -1,7 +1,3 @@
 .player-search {
-    color: white;
-}
-
-.player-search:placeholder {
-    color: #e1bee7;
+    margin-top: 12px;
 }

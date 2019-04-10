@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const DivisionTable = ({ division }) => (
-  <table>
+  <table className="table is-fullwidth">
     <thead>
       <tr>
         <th>Team</th>
-        <th>W</th>
-        <th>L</th>
-        <th>OTL</th>
-        <th>PTS</th>
+        <th><abbr title="Wins">W</abbr></th>
+        <th><abbr title="Losses">L</abbr></th>
+        <th><abbr title="Overtime losses">OTL</abbr></th>
+        <th><abbr title="Points">PTS</abbr></th>
       </tr>
     </thead>
     <tbody>

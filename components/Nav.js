@@ -27,7 +27,7 @@ const Nav = () => {
   return (
     <React.Fragment>
       <Desktop>
-        <nav className="purple darken-3">
+        <nav>
           <div className="nav__flex">
             <span className="nav__logo">
               <Link href="/">
@@ -39,7 +39,7 @@ const Nav = () => {
         </nav>
       </Desktop>
       <Mobile>
-        <nav className="purple darken-3">
+        <nav>
           <div className="nav__flex">
             <span className="nav__padding" />
             <span className="nav__logo">

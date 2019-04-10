@@ -25,14 +25,21 @@ const Index = () => (
       />
     </Head>
     <main>
-      <div className="container">
-        <div className="index__description">
-          <p>A quick and readable reference for NHL stats.</p>
+      <div className="index__description">
+        <p>A quick and readable reference for NHL stats.</p>
+      </div>
+      <section className="section">
+        <div className="container is-fluid">
+          <h1 className="title is-1">Find active players</h1>
+          <div className="index__section--centered">
+            <PlayerList />
+          </div>
         </div>
-        <PlayerList />
-        <Desktop>
-          <section className="index__carousel">
-            <h2>Today&#39;s Games</h2>
+      </section>
+      <Desktop>
+        <section className="section index__carousel">
+          <div className="container is-fluid">
+            <h2 className="title is-2">Today&#39;s Games</h2>
             <div style={{ textAlign: 'center' }}>
               <Spring
                 from={{ opacity: 0, transform: 'translateY(-20px)' }}
@@ -45,10 +52,16 @@ const Index = () => (
                 )}
               </Spring>
             </div>
-          </section>
-        </Desktop>
-        <DivisionStandings />
-      </div>
+          </div>
+        </section>
+      </Desktop>
+
+      <section className="section">
+        <div className="container is-fluid">
+          <h2 className="title is-2">Division Standings</h2>
+          <DivisionStandings />
+        </div>
+      </section>
     </main>
   </React.Fragment>
 );

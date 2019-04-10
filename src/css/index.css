@@ -6,3 +6,8 @@
 .index__carousel {
     min-height: 200px;
 }
+
+.index__section--centered {
+    margin: 0 auto;
+    width: 60vw;
+}

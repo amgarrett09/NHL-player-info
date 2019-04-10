@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import fetch from 'isomorphic-unfetch';
 import Router from 'next/router';
+import '../css/player-list.css';
 
 const teams = [
   { name: 'Anaheim Ducks', id: 0 },
@@ -84,45 +85,58 @@ const PlayerList = () => {
 
   return (
     <React.Fragment>
-      <h1>Find active players</h1>
-      {/* eslint-disable-next-line */}
-      <label
-        htmlFor="select-team"
-        style={{ color: 'black', fontSize: '1.0rem' }}
-      >
-        Select a team
-        <select
-          id="select-team"
-          className="browser-default"
-          onChange={showPlayers}
+      <div className="field">
+        {/* eslint-disable-next-line */}
+        <label
+          htmlFor="select-team"
+          style={{ color: 'black', fontSize: '1.0rem' }}
         >
-          <option value="">Click Here</option>
-          {teams.map(team => (
-            <option key={team.id} value={team.name}>
-              {team.name}
-            </option>
-          ))}
-        </select>
-      </label>
-      <br />
-      {/* eslint-disable-next-line */}
-      <label
-        htmlFor="choose-player"
-        style={{ color: 'black', fontSize: '1.0rem' }}
-      >
-        Choose a player
-        <select className="browser-default" id="choose-player">
-          <option value="">{ players.length > 0 ? 'Click Here' : '--' }</option>
-          {players.map(player => (
-            <option key={player.id} value={player.name}>
-              {player.name}
-            </option>
-          ))}
-        </select>
-      </label>
+          Select a team
+          <div className="control">
+            <div className="select select--fullwidth">
+              <select
+                id="select-team"
+                onChange={showPlayers}
+                className="select--fullwidth"
+              >
+                <option value="">Click Here</option>
+                {teams.map(team => (
+                  <option key={team.id} value={team.name}>
+                    {team.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </label>
+      </div>
+
+      <div className="field">
+        {/* eslint-disable-next-line */}
+        <label
+          htmlFor="choose-player"
+          style={{ color: 'black', fontSize: '1.0rem' }}
+        >
+          Choose a player
+          <div className="control">
+            <div className="select select--fullwidth">
+              <select id="choose-player" className="select--fullwidth">
+                <option value="">
+                  {players.length > 0 ? 'Click Here' : '--'}
+                </option>
+                {players.map(player => (
+                  <option key={player.id} value={player.name}>
+                    {player.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </label>
+      </div>
       <br />
       <button
-        className="btn waves-effect waves-light"
+        className="button is-link"
         type="submit"
         onClick={choosePlayer}
       >

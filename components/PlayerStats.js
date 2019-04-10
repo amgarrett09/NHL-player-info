@@ -14,8 +14,8 @@ const PlayerStats = ({
   }
 
   return (
-    <div className="stat-card" id={id} data-test="root div">
-      <h2 data-test="title">{ title }</h2>
+    <div className="box" id={id} data-test="root div">
+      <h2 className="title is 2" data-test="title">{ title }</h2>
       {playerType === 'Goalie' && (
       <GoalieTable stats={stats} career={career} />
       )}

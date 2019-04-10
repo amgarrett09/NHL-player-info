@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../css/stats.css';
-
 const LastFiveGames = ({ position, games }) => {
   const skaterTable = (
-    <div className="stat-card">
-      <h2>Last Five Games</h2>
-      <table>
+    <div className="box">
+      <h2 className="title is-2">Last Five Games</h2>
+      <table className="table">
         <thead>
           <tr>
             <th>Opponent</th>
@@ -52,7 +50,7 @@ const LastFiveGames = ({ position, games }) => {
   );
 
   const goalieTable = (
-    <div className="stat-card">
+    <div className="box">
       <h2>Last Five Games</h2>
       <table>
         <thead>
