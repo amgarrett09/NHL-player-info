@@ -3,6 +3,7 @@ import fetch from 'isomorphic-unfetch';
 import PropTypes from 'prop-types';
 import Autocomplete from 'react-autocomplete';
 import Router from 'next/router';
+import upperFirst from 'lodash.upperfirst';
 
 import config from '../config';
 import LoadingContext from '../context/LoadingContext';
@@ -20,8 +21,12 @@ const PlayerSearch = ({ id }) => {
 
   // Update text field and get autocomplete suggestions
   const update = async (e) => {
-    const val = e.target.value;
+    let val = e.target.value;
     setValue(val);
+
+    // Make sure input is properly capitalized
+    val = val.split(' ').map(word => upperFirst(word.toLowerCase())).join(' ');
+
 
     // If input is three characters or more, get suggestions from API
     if (val.length >= 3) {
