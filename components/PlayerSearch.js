@@ -4,13 +4,16 @@ import PropTypes from 'prop-types';
 import Autocomplete from 'react-autocomplete';
 import Router from 'next/router';
 import upperFirst from 'lodash.upperfirst';
-
+import AwesomeDebouncePromise from 'awesome-debounce-promise';
 import config from '../config';
 import LoadingContext from '../context/LoadingContext';
 import '../css/player-search.css';
 
 const autocompleteUrl = config.AUTOCOMPLETE_URL;
 const playerUrl = config.PLAYER_URL;
+
+const fetchSuggestions = val => fetch(`${autocompleteUrl}${val}`);
+const debouncedFetch = AwesomeDebouncePromise(fetchSuggestions, 300);
 
 const PlayerSearch = ({ id }) => {
   const [suggestions, setSuggestions] = useState([]);
@@ -24,14 +27,11 @@ const PlayerSearch = ({ id }) => {
     let val = e.target.value;
     setValue(val);
 
-    // Make sure input is properly capitalized
     val = val.split(' ').map(word => upperFirst(word.toLowerCase())).join(' ');
 
-
-    // If input is three characters or more, get suggestions from API
     if (val.length >= 3) {
       try {
-        const res = await fetch(`${autocompleteUrl}${val}`);
+        const res = await debouncedFetch(val);
         const json = await res.json();
         const sug = json.suggestions.map(item => ({
           label: item,
