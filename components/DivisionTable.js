@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const DivisionTable = ({ division }) => (
-  <table className="table is-fullwidth">
+  <table className="table is-fullwidth is-narrow">
     <thead>
       <tr>
         <th>Team</th>
