@@ -1,20 +1,12 @@
 .game-info {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: center;
-    width: 175px;
     height: 100px;
-    background-color: hsl(0, 0%, 95%);
-    box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.2);
+    width: 175px;
 }
 
-.game-info__scores {
-    padding-top: 17px;
-    padding-left: 10px;
+.game-info p {
+    margin-bottom: 10px;
 }
 
-.game-info__game-state {
-    padding-top: 35px;
-    padding-right: 10px;
+.game-info__score {
+    margin: 0 5px 0 10px;
 }

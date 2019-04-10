@@ -6,29 +6,23 @@ import '../css/game-info.css';
 const GameInfo = ({
   homeTeam, awayTeam, homeScore, awayScore, gameState,
 }) => (
-  <div className="game-info">
-    <div className="game-info__scores">
-      <div className="row">
-        <div className="col s6" data-test="away-team-name">
-          {teamAbbreviations[awayTeam] || awayTeam}
-        </div>
-        <div className="col s6" data-test="away-team-score">
-          {awayScore}
-        </div>
+  <div className="game-info box">
+    <div className="columns">
+      <div className="column">
+        <p>
+          {teamAbbreviations[awayTeam]}
+          &nbsp;
+          <span className="game-info__score">{awayScore}</span>
+        </p>
+        <p>
+          {teamAbbreviations[homeTeam]}
+          &nbsp;
+          <span className="game-info__score">{homeScore}</span>
+        </p>
       </div>
-
-      <div className="row">
-        <div className="col s6" data-test="home-team-name">
-          {teamAbbreviations[homeTeam] || awayTeam}
-        </div>
-        <div className="col s6" data-test="home-team-score">
-          {homeScore}
-        </div>
+      <div className="column">
+        <p>{gameState}</p>
       </div>
-    </div>
-
-    <div className="game-info__game-state" data-test="game-status">
-      {gameState}
     </div>
   </div>
 );
