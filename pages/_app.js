@@ -3,7 +3,7 @@ import App, { Container } from 'next/app';
 import { PageTransition } from 'next-page-transitions';
 import Layout from '../components/Layout';
 import LoadingContext from '../context/LoadingContext';
-import 'bulma/css/bulma.css';
+import 'bulma/css/bulma.min.css';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
