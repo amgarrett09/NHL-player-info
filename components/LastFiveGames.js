@@ -5,7 +5,7 @@ const LastFiveGames = ({ position, games }) => {
   const skaterTable = (
     <div className="box">
       <h2 className="title is-2">Last Five Games</h2>
-      <table className="table">
+      <table className="table is-fullwidth">
         <thead>
           <tr>
             <th>Opponent</th>
@@ -51,8 +51,8 @@ const LastFiveGames = ({ position, games }) => {
 
   const goalieTable = (
     <div className="box">
-      <h2>Last Five Games</h2>
-      <table>
+      <h2 className="title is-2">Last Five Games</h2>
+      <table className="table is-fullwidth">
         <thead>
           <tr>
             <th>Opponent</th>
