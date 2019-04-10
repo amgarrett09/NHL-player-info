@@ -12,7 +12,11 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
     type="button"
   >
     <strong>
-      &lt;
+      <span
+        className="game-carousel__button-text"
+      >
+        &lt;
+      </span>
     </strong>
   </button>
   <div
@@ -61,49 +65,52 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
             className="slideInner___2mfX9 carousel__inner-slide"
           >
             <div
-              className="game-info"
+              className="game-info box"
             >
               <div
-                className="game-info__scores"
+                className="columns"
               >
                 <div
-                  className="row"
+                  className="column"
                 >
-                  <div
-                    className="col s6"
-                    data-test="away-team-name"
-                  >
-                    DET
-                  </div>
-                  <div
-                    className="col s6"
-                    data-test="away-team-score"
-                  >
-                    5
-                  </div>
+                  <p>
+                    <span
+                      data-test="away-team-name"
+                    >
+                      DET
+                    </span>
+                     
+                    <span
+                      className="game-info__score"
+                      data-test="away-team-score"
+                    >
+                      5
+                    </span>
+                  </p>
+                  <p>
+                    <span
+                      data-test="home-team-name"
+                    >
+                      BUF
+                    </span>
+                     
+                    <span
+                      className="game-info__score"
+                      data-test="home-team-score"
+                    >
+                      4
+                    </span>
+                  </p>
                 </div>
                 <div
-                  className="row"
+                  className="column"
                 >
-                  <div
-                    className="col s6"
-                    data-test="home-team-name"
+                  <p
+                    data-test="game-status"
                   >
-                    BUF
-                  </div>
-                  <div
-                    className="col s6"
-                    data-test="home-team-score"
-                  >
-                    4
-                  </div>
+                    FINAL
+                  </p>
                 </div>
-              </div>
-              <div
-                className="game-info__game-state"
-                data-test="game-status"
-              >
-                FINAL
               </div>
             </div>
           </div>
@@ -127,49 +134,52 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
             className="slideInner___2mfX9 carousel__inner-slide"
           >
             <div
-              className="game-info"
+              className="game-info box"
             >
               <div
-                className="game-info__scores"
+                className="columns"
               >
                 <div
-                  className="row"
+                  className="column"
                 >
-                  <div
-                    className="col s6"
-                    data-test="away-team-name"
-                  >
-                    CHI
-                  </div>
-                  <div
-                    className="col s6"
-                    data-test="away-team-score"
-                  >
-                    3
-                  </div>
+                  <p>
+                    <span
+                      data-test="away-team-name"
+                    >
+                      CHI
+                    </span>
+                     
+                    <span
+                      className="game-info__score"
+                      data-test="away-team-score"
+                    >
+                      3
+                    </span>
+                  </p>
+                  <p>
+                    <span
+                      data-test="home-team-name"
+                    >
+                      WIN
+                    </span>
+                     
+                    <span
+                      className="game-info__score"
+                      data-test="home-team-score"
+                    >
+                      4
+                    </span>
+                  </p>
                 </div>
                 <div
-                  className="row"
+                  className="column"
                 >
-                  <div
-                    className="col s6"
-                    data-test="home-team-name"
+                  <p
+                    data-test="game-status"
                   >
-                    WIN
-                  </div>
-                  <div
-                    className="col s6"
-                    data-test="home-team-score"
-                  >
-                    4
-                  </div>
+                    3RD
+                  </p>
                 </div>
-              </div>
-              <div
-                className="game-info__game-state"
-                data-test="game-status"
-              >
-                3RD
               </div>
             </div>
           </div>
@@ -193,49 +203,52 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
             className="slideInner___2mfX9 carousel__inner-slide"
           >
             <div
-              className="game-info"
+              className="game-info box"
             >
               <div
-                className="game-info__scores"
+                className="columns"
               >
                 <div
-                  className="row"
+                  className="column"
                 >
-                  <div
-                    className="col s6"
-                    data-test="away-team-name"
-                  >
-                    SJS
-                  </div>
-                  <div
-                    className="col s6"
-                    data-test="away-team-score"
-                  >
-                    2
-                  </div>
+                  <p>
+                    <span
+                      data-test="away-team-name"
+                    >
+                      SJS
+                    </span>
+                     
+                    <span
+                      className="game-info__score"
+                      data-test="away-team-score"
+                    >
+                      2
+                    </span>
+                  </p>
+                  <p>
+                    <span
+                      data-test="home-team-name"
+                    >
+                      ARI
+                    </span>
+                     
+                    <span
+                      className="game-info__score"
+                      data-test="home-team-score"
+                    >
+                      1
+                    </span>
+                  </p>
                 </div>
                 <div
-                  className="row"
+                  className="column"
                 >
-                  <div
-                    className="col s6"
-                    data-test="home-team-name"
+                  <p
+                    data-test="game-status"
                   >
-                    ARI
-                  </div>
-                  <div
-                    className="col s6"
-                    data-test="home-team-score"
-                  >
-                    1
-                  </div>
+                    1ST
+                  </p>
                 </div>
-              </div>
-              <div
-                className="game-info__game-state"
-                data-test="game-status"
-              >
-                1ST
               </div>
             </div>
           </div>
@@ -251,7 +264,11 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
     type="button"
   >
     <strong>
-      &gt;
+      <span
+        className="game-carousel__button-text"
+      >
+        &gt;
+      </span>
     </strong>
   </button>
 </div>

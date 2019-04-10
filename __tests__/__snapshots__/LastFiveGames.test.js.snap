@@ -2,12 +2,16 @@
 
 exports[`LastFiveGames should match snapshot 1`] = `
 <div
-  className="stat-card"
+  className="box"
 >
-  <h2>
+  <h2
+    className="title is-2"
+  >
     Last Five Games
   </h2>
-  <table>
+  <table
+    className="table is-fullwidth is-narrow"
+  >
     <thead>
       <tr>
         <th>

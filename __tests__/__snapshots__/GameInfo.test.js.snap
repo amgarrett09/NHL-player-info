@@ -2,49 +2,52 @@
 
 exports[`GameInfo should render and should not change unexpectedly 1`] = `
 <div
-  className="game-info"
+  className="game-info box"
 >
   <div
-    className="game-info__scores"
+    className="columns"
   >
     <div
-      className="row"
+      className="column"
     >
-      <div
-        className="col s6"
-        data-test="away-team-name"
-      >
-        BUF
-      </div>
-      <div
-        className="col s6"
-        data-test="away-team-score"
-      >
-        4
-      </div>
+      <p>
+        <span
+          data-test="away-team-name"
+        >
+          BUF
+        </span>
+         
+        <span
+          className="game-info__score"
+          data-test="away-team-score"
+        >
+          4
+        </span>
+      </p>
+      <p>
+        <span
+          data-test="home-team-name"
+        >
+          DET
+        </span>
+         
+        <span
+          className="game-info__score"
+          data-test="home-team-score"
+        >
+          5
+        </span>
+      </p>
     </div>
     <div
-      className="row"
+      className="column"
     >
-      <div
-        className="col s6"
-        data-test="home-team-name"
+      <p
+        data-test="game-status"
       >
-        DET
-      </div>
-      <div
-        className="col s6"
-        data-test="home-team-score"
-      >
-        5
-      </div>
+        Final
+      </p>
     </div>
-  </div>
-  <div
-    className="game-info__game-state"
-    data-test="game-status"
-  >
-    Final
   </div>
 </div>
 `;

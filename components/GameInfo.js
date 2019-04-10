@@ -10,18 +10,22 @@ const GameInfo = ({
     <div className="columns">
       <div className="column">
         <p>
-          {teamAbbreviations[awayTeam]}
+          <span data-test="away-team-name">{teamAbbreviations[awayTeam]}</span>
           &nbsp;
-          <span className="game-info__score">{awayScore}</span>
+          <span className="game-info__score" data-test="away-team-score">
+            {awayScore}
+          </span>
         </p>
         <p>
-          {teamAbbreviations[homeTeam]}
+          <span data-test="home-team-name">{teamAbbreviations[homeTeam]}</span>
           &nbsp;
-          <span className="game-info__score">{homeScore}</span>
+          <span className="game-info__score" data-test="home-team-score">
+            {homeScore}
+          </span>
         </p>
       </div>
       <div className="column">
-        <p>{gameState}</p>
+        <p data-test="game-status">{gameState}</p>
       </div>
     </div>
   </div>
