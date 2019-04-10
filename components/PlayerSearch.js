@@ -13,12 +13,11 @@ const autocompleteUrl = config.AUTOCOMPLETE_URL;
 const playerUrl = config.PLAYER_URL;
 
 const fetchSuggestions = val => fetch(`${autocompleteUrl}${val}`);
-const debouncedFetch = AwesomeDebouncePromise(fetchSuggestions, 300);
+const debouncedFetch = AwesomeDebouncePromise(fetchSuggestions, 200);
 
 const PlayerSearch = ({ id }) => {
   const [suggestions, setSuggestions] = useState([]);
   const [value, setValue] = useState('');
-  const [menuOpen, setMenuOpen] = useState(false);
 
   const context = useContext(LoadingContext);
 
@@ -40,15 +39,12 @@ const PlayerSearch = ({ id }) => {
         // Only set state if there are suggestions
         if (sug && sug.length > 0) {
           setSuggestions(sug);
-          setMenuOpen(true);
         }
       } catch {
         setSuggestions([]);
-        setMenuOpen(false);
       }
     } else {
       setSuggestions([]);
-      setMenuOpen(false);
     }
   };
 
@@ -89,7 +85,7 @@ const PlayerSearch = ({ id }) => {
 
   return (
     <Autocomplete
-      open={menuOpen}
+      open={value.length >= 3}
       getItemValue={item => item.label}
       items={suggestions}
       renderItem={(item, isHighlighted) => (
