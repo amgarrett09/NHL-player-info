@@ -72,6 +72,10 @@ class MyApp extends App {
                 opacity: 0;
                 transition: opacity 200ms;
               }
+
+              .box {
+                overflow: auto
+              }
             `}
           </style>
         </LoadingContext.Provider>
