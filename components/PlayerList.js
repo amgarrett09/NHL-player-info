@@ -96,7 +96,7 @@ const PlayerList = () => {
           className="browser-default"
           onChange={showPlayers}
         >
-          <option value="">--</option>
+          <option value="">Click Here</option>
           {teams.map(team => (
             <option key={team.id} value={team.name}>
               {team.name}
@@ -112,7 +112,7 @@ const PlayerList = () => {
       >
         Choose a player
         <select className="browser-default" id="choose-player">
-          <option value="">--</option>
+          <option value="">{ players.length > 0 ? 'Click Here' : '--' }</option>
           {players.map(player => (
             <option key={player.id} value={player.name}>
               {player.name}
