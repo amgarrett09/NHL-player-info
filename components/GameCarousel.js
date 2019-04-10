@@ -22,7 +22,9 @@ const GameCarousel = ({ games }) => (
       className="game-carousel"
     >
       <ButtonBack className="game-carousel__button">
-        <strong>&lt;</strong>
+        <strong>
+          <span className="game-carousel__button-text">&lt;</span>
+        </strong>
       </ButtonBack>
       <Slider className="game-carousel__slider">
         {games.map((game, i) => (
@@ -44,7 +46,9 @@ const GameCarousel = ({ games }) => (
         ))}
       </Slider>
       <ButtonNext className="game-carousel__button">
-        <strong>&gt;</strong>
+        <strong>
+          <span className="game-carousel__button-text">&gt;</span>
+        </strong>
       </ButtonNext>
     </CarouselProvider>
     )}

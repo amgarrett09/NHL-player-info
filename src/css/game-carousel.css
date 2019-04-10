@@ -26,6 +26,10 @@
 }
 
 .game-carousel__button:disabled {
-    background-color: #bdbdbd;
+    background-color: #888787;
     cursor: default;
+}
+
+.game-carousel__button-text {
+    color: white;
 }
