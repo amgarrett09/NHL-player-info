@@ -111,13 +111,15 @@ const Player = ({
 
         {playoffStats.length > 0 && (
         <section className="section">
-          <PlayerStats
-            position={position}
-            stats={playoffStats}
-            career={careerPlayoffs}
-            id="playoff-stats"
-            title="Playoff Stats"
-          />
+          <div className="container is-fluid">
+            <PlayerStats
+              position={position}
+              stats={playoffStats}
+              career={careerPlayoffs}
+              id="playoff-stats"
+              title="Playoff Stats"
+            />
+          </div>
         </section>
         )}
       </main>
