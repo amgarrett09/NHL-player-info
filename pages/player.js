@@ -29,7 +29,7 @@ const Player = ({
     context.unsetLoading();
   }, [id]);
 
-  if (id === '') {
+  if (name === '') {
     return (
       <React.Fragment>
         <Head>
@@ -39,14 +39,14 @@ const Player = ({
             content="width=device-width, initial-scale=1.0"
           />
           <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-          <title>There was a problem fetching player data</title>
+          <title>Error</title>
           <link
             href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet"
           />
         </Head>
         <main>
-          <h1>Invalid player id</h1>
+          <h1>There was a problem fetching player data</h1>
         </main>
       </React.Fragment>
     );
@@ -203,7 +203,7 @@ Player.getInitialProps = async ({ query }) => {
       active,
     } = person);
   } catch (err) {
-    person = null;
+    person = {};
   }
 
   // fetch stats
@@ -254,7 +254,7 @@ Player.getInitialProps = async ({ query }) => {
     id: query.id,
     name: fullName,
     position: primaryPosition.name,
-    currentTeam: person.currentTeam ? person.currentTeam.name : null,
+    currentTeam: person.currentTeam ? person.currentTeam.name : undefined,
     shootsCatches,
     height,
     weight,
