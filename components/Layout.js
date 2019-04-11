@@ -7,10 +7,8 @@ const Layout = ({ children }) => (
   <React.Fragment>
     <Nav />
     {children}
-    <footer className="page-footer purple darken-3">
-      <div className="footer-copyright">
+    <footer className="footer" style={{ color: 'white', backgroundColor: '#6a1b9a' }}>
         &copy; 2019 Alex Garrett
-      </div>
     </footer>
   </React.Fragment>
 );

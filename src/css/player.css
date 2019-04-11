@@ -3,9 +3,9 @@ main {
 }
 
 .main--visible {
-    opacity: 1;
+    opacity: 1 !important;
 }
 
 .main--hidden {
-    opacity: 0;
+    opacity: 0 !important;
 }

@@ -39,7 +39,7 @@ const Player = ({
             content="width=device-width, initial-scale=1.0"
           />
           <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-          <title>Invalid ID - Hockey Scrub</title>
+          <title>There was a problem fetching player data</title>
           <link
             href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet"

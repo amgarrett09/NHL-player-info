@@ -57,10 +57,9 @@ const PlayerSearch = ({ id }) => {
       const { player } = await res.json();
       const playerId = player.id.toString();
 
-      setMenuOpen(false);
-
       Router.push(`/player?id=${playerId}`);
       context.setLoading();
+      setValue('');
     } catch (err) {
       setValue(val);
     }
@@ -80,7 +79,8 @@ const PlayerSearch = ({ id }) => {
     maxHeight: '200px',
     overflow: 'auto',
     boxShadow: '0 2px 12px rgba(0, 0, 0, 0.1)',
-    position: 'fixed',
+    position: 'absolute',
+    top: '60px',
   };
 
   return (
