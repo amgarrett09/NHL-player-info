@@ -213,8 +213,12 @@ Player.getInitialProps = async ({ query }) => {
   let careerPlayoffs;
   let lastFive;
 
-
-  const res = await StatsService.getCombinedStats(query.id);
+  let res;
+  try {
+    res = await StatsService.getCombinedStats(query.id);
+  } catch (err) {
+    res = null;
+  }
 
   // Season stats
   try {
@@ -232,7 +236,7 @@ Player.getInitialProps = async ({ query }) => {
     playoffStats = res.data.stats[2].splits.filter(split => (
       split.league.name === 'National Hockey League'
     ));
-    careerPlayoffs = res.data.stats[3].splits.stat;
+    careerPlayoffs = res.data.stats[3].splits[0].stat;
   } catch (err) {
     playoffStats = [];
     careerPlayoffs = {};
