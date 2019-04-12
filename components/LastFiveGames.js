@@ -9,19 +9,19 @@ const LastFiveGames = ({ position, games }) => {
         <thead>
           <tr>
             <th>Opponent</th>
-            <th>G</th>
-            <th>A</th>
-            <th>P</th>
-            <th>+/-</th>
-            <th>PIM</th>
-            <th>PPG</th>
-            <th>PPP</th>
-            <th>SHG</th>
-            <th>SHP</th>
-            <th>GWG</th>
-            <th>OTG</th>
-            <th>S</th>
-            <th>MIN</th>
+            <th><abbr title="Goals">G</abbr></th>
+            <th><abbr title="Assists">A</abbr></th>
+            <th><abbr title="Points">P</abbr></th>
+            <th><abbr title="Plus / Minus">+/-</abbr></th>
+            <th><abbr title="Penalty in Minutes">PIM</abbr></th>
+            <th><abbr title="Powerplay Goals">PPG</abbr></th>
+            <th><abbr title="Powerplay Points">PPP</abbr></th>
+            <th><abbr title="Shorthanded Goals">SHG</abbr></th>
+            <th><abbr title="Shorthanded Points">SHP</abbr></th>
+            <th><abbr title="Game Winning Goals">GWG</abbr></th>
+            <th><abbr title="Overtime Goals">OTG</abbr></th>
+            <th><abbr title="Shots">S</abbr></th>
+            <th><abbr title="Minutes">MIN</abbr></th>
           </tr>
         </thead>
 
