@@ -18,43 +18,95 @@ exports[`LastFiveGames should match snapshot 1`] = `
           Opponent
         </th>
         <th>
-          G
+          <abbr
+            title="Goals"
+          >
+            G
+          </abbr>
         </th>
         <th>
-          A
+          <abbr
+            title="Assists"
+          >
+            A
+          </abbr>
         </th>
         <th>
-          P
+          <abbr
+            title="Points"
+          >
+            P
+          </abbr>
         </th>
         <th>
-          +/-
+          <abbr
+            title="Plus / Minus"
+          >
+            +/-
+          </abbr>
         </th>
         <th>
-          PIM
+          <abbr
+            title="Penalty in Minutes"
+          >
+            PIM
+          </abbr>
         </th>
         <th>
-          PPG
+          <abbr
+            title="Powerplay Goals"
+          >
+            PPG
+          </abbr>
         </th>
         <th>
-          PPP
+          <abbr
+            title="Powerplay Points"
+          >
+            PPP
+          </abbr>
         </th>
         <th>
-          SHG
+          <abbr
+            title="Shorthanded Goals"
+          >
+            SHG
+          </abbr>
         </th>
         <th>
-          SHP
+          <abbr
+            title="Shorthanded Points"
+          >
+            SHP
+          </abbr>
         </th>
         <th>
-          GWG
+          <abbr
+            title="Game Winning Goals"
+          >
+            GWG
+          </abbr>
         </th>
         <th>
-          OTG
+          <abbr
+            title="Overtime Goals"
+          >
+            OTG
+          </abbr>
         </th>
         <th>
-          S
+          <abbr
+            title="Shots"
+          >
+            S
+          </abbr>
         </th>
         <th>
-          MIN
+          <abbr
+            title="Minutes"
+          >
+            MIN
+          </abbr>
         </th>
       </tr>
     </thead>

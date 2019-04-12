@@ -55,7 +55,7 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
           role="option"
           style={
             Object {
-              "paddingBottom": "19.047619047619047%",
+              "paddingBottom": "20.571428571428573%",
               "width": "33.333333333333336%",
             }
           }
@@ -124,7 +124,7 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
           role="option"
           style={
             Object {
-              "paddingBottom": "19.047619047619047%",
+              "paddingBottom": "20.571428571428573%",
               "width": "33.333333333333336%",
             }
           }
@@ -193,7 +193,7 @@ exports[`GameCarousel sould render and should not change unexpectedly 1`] = `
           role="option"
           style={
             Object {
-              "paddingBottom": "19.047619047619047%",
+              "paddingBottom": "20.571428571428573%",
               "width": "33.333333333333336%",
             }
           }
