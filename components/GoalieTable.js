@@ -10,19 +10,19 @@ const GoalieTable = ({ stats, career }) => (
       <tr>
         <th>Season</th>
         <th>Team</th>
-        <th>GP</th>
-        <th>GS</th>
-        <th>W</th>
-        <th>L</th>
-        <th>T</th>
-        <th>OT</th>
-        <th>SA</th>
-        <th>GA</th>
-        <th>GAA</th>
-        <th>S</th>
-        <th>Sv%</th>
-        <th>SO</th>
-        <th>MIN</th>
+        <th><abbr title="Games Played">GP</abbr></th>
+        <th><abbr title="Games Started">GS</abbr></th>
+        <th><abbr title="Wins">W</abbr></th>
+        <th><abbr title="Losses">L</abbr></th>
+        <th><abbr title="Ties">T</abbr></th>
+        <th><abbr title="Overtime Losses">OTL</abbr></th>
+        <th><abbr title="Shots Against">SA</abbr></th>
+        <th><abbr title="Goals Against">GA</abbr></th>
+        <th><abbr title="Goals Against Average">GAA</abbr></th>
+        <th><abbr title="Saves">S</abbr></th>
+        <th><abbr title="Save Percentage">S%</abbr></th>
+        <th><abbr title="Shutouts">SO</abbr></th>
+        <th><abbr title="Minutes">MIN</abbr></th>
       </tr>
     </thead>
 

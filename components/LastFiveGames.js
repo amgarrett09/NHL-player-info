@@ -56,11 +56,11 @@ const LastFiveGames = ({ position, games }) => {
         <thead>
           <tr>
             <th>Opponent</th>
-            <th>SA</th>
-            <th>GA</th>
-            <th>S</th>
-            <th>Sv%</th>
-            <th>MIN</th>
+            <th><abbr title="Shots Against">SA</abbr></th>
+            <th><abbr title="Goals Against">GA</abbr></th>
+            <th><abbr title="Saves">S</abbr></th>
+            <th><abbr title="Save Percentage">S%</abbr></th>
+            <th><abbr title="Minutes">MIN</abbr></th>
           </tr>
         </thead>
 
