@@ -34,7 +34,11 @@ const Nav = () => {
                 <a>Hockey Scrub</a>
               </Link>
             </span>
-            <PlayerSearch id="player-search" />
+            {/* eslint-disable-next-line */}
+            <label htmlFor="player-search">
+              <span className="nav__ps-label">Search players:</span>
+              <PlayerSearch id="player-search" />
+            </label>
           </div>
         </nav>
       </Desktop>
@@ -66,7 +70,11 @@ const Nav = () => {
         >
           {open && (
             <div className="nav__search-container">
-              <PlayerSearch id="player-search" />
+              {/* eslint-disable-next-line */}
+              <label htmlFor="player-search">
+                <span className="nav__ps-label">Search players:</span>
+                <PlayerSearch id="player-search" />
+              </label>
             </div>
           )}
         </div>

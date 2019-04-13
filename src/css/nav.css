@@ -58,3 +58,10 @@ nav a:hover {
     text-align: center;
     padding-top: 10px;
 }
+
+.nav__ps-label {
+    color: white;
+    position: relative;
+    right: 10px;
+    top: 18px;
+}

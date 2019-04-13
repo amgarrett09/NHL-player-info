@@ -70,7 +70,6 @@ const PlayerSearch = ({ id }) => {
       className="input player-search"
       type="text"
       id={id}
-      placeholder="Search players"
       {...props}
     />
   );
