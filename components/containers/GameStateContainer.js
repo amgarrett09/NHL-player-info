@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 
 // Wrapper that fetches data for components that need game schedule
-const withGameState = WrappedComponent => (props) => {
+const GameStateContainer = ({ render }) => {
   const [games, setGames] = useState([]);
   const [loaded, setLoaded] = useState(false);
 
@@ -57,9 +58,13 @@ const withGameState = WrappedComponent => (props) => {
 
   return (
     <React.Fragment>
-      {loaded && <WrappedComponent games={games} {...props} />}
+      {loaded && render(games)}
     </React.Fragment>
   );
 };
 
-export default withGameState;
+GameStateContainer.propTypes = {
+  render: PropTypes.func.isRequired,
+};
+
+export default GameStateContainer;
