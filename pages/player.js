@@ -2,7 +2,8 @@ import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import LoadingContext from '../context/LoadingContext';
-import StatsService from '../services/StatsService';
+import StatsService from '../api/stats-calls';
+import DataPrep from '../api/stats-data-prep';
 import PlayerStats from '../components/PlayerStats';
 import LastFiveGames from '../components/LastFiveGames';
 import '../css/player.css';
@@ -182,30 +183,12 @@ Player.defaultProps = {
 };
 
 Player.getInitialProps = async ({ query }) => {
-  // fetch basic info
-  let fullName = '';
-  let primaryPosition = '';
-  let shootsCatches = '';
-  let height = '';
-  let weight = '';
-  let nationality = '';
-  let active = '';
-  let person;
-
+  let basicInfo;
   try {
     const basicRes = await StatsService.getBasicInfo(query.id);
-    [person] = basicRes.data.people;
-    ({
-      fullName,
-      primaryPosition,
-      shootsCatches,
-      height,
-      weight,
-      nationality,
-      active,
-    } = person);
+    basicInfo = DataPrep.prepareBasicInfo(basicRes.data);
   } catch (err) {
-    person = {};
+    basicInfo = {};
   }
 
   // fetch stats
@@ -254,14 +237,7 @@ Player.getInitialProps = async ({ query }) => {
 
   return {
     id: query.id,
-    name: fullName,
-    position: primaryPosition.name,
-    currentTeam: person.currentTeam ? person.currentTeam.name : undefined,
-    shootsCatches,
-    height,
-    weight,
-    nationality,
-    active,
+    ...basicInfo,
     seasonStats,
     careerSeason,
     playoffStats,
