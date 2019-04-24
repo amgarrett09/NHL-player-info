@@ -191,58 +191,18 @@ Player.getInitialProps = async ({ query }) => {
     basicInfo = {};
   }
 
-  // fetch stats
-  let seasonStats;
-  let careerSeason;
-  let playoffStats;
-  let careerPlayoffs;
-  let lastFive;
-
-  let res;
+  let playerStats;
   try {
-    res = await StatsService.getCombinedStats(query.id);
+    const res = await StatsService.getCombinedStats(query.id);
+    playerStats = DataPrep.preparePlayerStats(res.data);
   } catch (err) {
-    res = null;
+    playerStats = {};
   }
-
-  // Season stats
-  try {
-    seasonStats = res.data.stats[0].splits.filter(split => (
-      split.league.name === 'National Hockey League'
-    ));
-    careerSeason = res.data.stats[1].splits[0].stat;
-  } catch (err) {
-    seasonStats = [];
-    careerSeason = {};
-  }
-
-  // Playoff stats
-  try {
-    playoffStats = res.data.stats[2].splits.filter(split => (
-      split.league.name === 'National Hockey League'
-    ));
-    careerPlayoffs = res.data.stats[3].splits[0].stat;
-  } catch (err) {
-    playoffStats = [];
-    careerPlayoffs = {};
-  }
-
-  // Last five games
-  try {
-    lastFive = res.data.stats[4].splits.slice(0, 5);
-  } catch (err) {
-    lastFive = [];
-  }
-
 
   return {
     id: query.id,
     ...basicInfo,
-    seasonStats,
-    careerSeason,
-    playoffStats,
-    careerPlayoffs,
-    lastFive,
+    ...playerStats,
   };
 };
 
