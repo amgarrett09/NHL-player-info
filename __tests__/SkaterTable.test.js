@@ -10,7 +10,7 @@ describe('SkaterTable', () => {
     const component = renderer.create(
       <SkaterTable stats={stats} career={career} />,
     );
-    const tree = component.toJSON;
+    const tree = component.toJSON();
 
     expect(tree).toMatchSnapshot();
   });

@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Player page should render and should match snapshot 1`] = `
+<main
+  className="main--visible"
+>
+  <section
+    className="section"
+  >
+    <h1
+      className="title is-1"
+    >
+      Jane Doe
+    </h1>
+    <p>
+      <strong>
+        Detroit Red Wings
+      </strong>
+    </p>
+    <p>
+      Position: Goalie • Shoots/Catches: 
+    </p>
+    <p>
+      5' 6" • 140 lbs • USA
+    </p>
+  </section>
+  <section
+    className="section"
+  >
+    <div
+      className="container is-fluid"
+    />
+  </section>
+</main>
+`;

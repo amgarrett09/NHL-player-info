@@ -17,7 +17,7 @@ describe('PlayerStats', () => {
         id="season-stats"
       />,
     );
-    const tree = component.toJSON;
+    const tree = component.toJSON();
 
     expect(tree).toMatchSnapshot();
   });
