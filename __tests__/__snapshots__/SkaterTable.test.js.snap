@@ -2,409 +2,785 @@
 
 exports[`SkaterTable should match snapshot 1`] = `
 <table
-  className="table is-narrow is-hoverable is-fullwidth"
+  className="jsx-1823102791 table is-narrow is-hoverable is-fullwidth"
 >
-  <thead>
-    <tr>
-      <th>
-        Season
+  <thead
+    className="jsx-1823102791"
+  >
+    <tr
+      className="jsx-1823102791"
+    >
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
+        >
+          Season
+        </button>
       </th>
-      <th>
+      <th
+        className="jsx-1823102791"
+      >
         Team
       </th>
-      <th>
-        <abbr
-          title="Games Played"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          GP
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Games Played"
+          >
+            GP
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Goals"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          G
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Goals"
+          >
+            G
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Assists"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          A
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Assists"
+          >
+            A
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Points"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          P
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Points"
+          >
+            P
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Plus / Minus"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          +/-
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Plus / Minus"
+          >
+            +/-
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Penalty in Minutes"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          PIM
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Penalty in Minutes"
+          >
+            PIM
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Powerplay Goals"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          PPG
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Powerplay Goals"
+          >
+            PPG
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Powerplay Points"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          PPP
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Powerplay Points"
+          >
+            PPP
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Shorthanded Goals"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          SHG
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Shorthanded Goals"
+          >
+            SHG
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Shorthanded Points"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          SHP
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Shorthanded Points"
+          >
+            SHP
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Game Winning Goals"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          GWG
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Game Winning Goals"
+          >
+            GWG
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Overtime Goals"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          OTG
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Overtime Goals"
+          >
+            OTG
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Shots"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          S
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Shots"
+          >
+            S
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Shooting Percentage"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          S%
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Shooting Percentage"
+          >
+            S%
+          </abbr>
+        </button>
       </th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <td>
+  <tbody
+    className="jsx-1823102791"
+  >
+    <tr
+      className="jsx-1823102791"
+    >
+      <td
+        className="jsx-1823102791 "
+      >
         2016-2017
       </td>
-      <td>
+      <td
+        className="jsx-1823102791"
+      >
         DET
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         7
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         0
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         0
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         0
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         -1
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         0
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         0
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         0
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         0
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         0
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         0
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         0
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         3
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         0
       </td>
     </tr>
-    <tr>
-      <td>
+    <tr
+      className="jsx-1823102791"
+    >
+      <td
+        className="jsx-1823102791 "
+      >
         2016-2017
       </td>
-      <td>
+      <td
+        className="jsx-1823102791"
+      >
         Grand Rapids Griffins
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         48
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         12
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         25
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         37
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         15
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         37
       </td>
-      <td />
-      <td />
-      <td />
-      <td />
-      <td />
-      <td />
-      <td />
-      <td />
+      <td
+        className="jsx-1823102791 "
+      />
+      <td
+        className="jsx-1823102791 "
+      />
+      <td
+        className="jsx-1823102791 "
+      />
+      <td
+        className="jsx-1823102791 "
+      />
+      <td
+        className="jsx-1823102791 "
+      />
+      <td
+        className="jsx-1823102791 "
+      />
+      <td
+        className="jsx-1823102791 "
+      />
+      <td
+        className="jsx-1823102791 "
+      />
     </tr>
-    <tr>
-      <td>
+    <tr
+      className="jsx-1823102791"
+    >
+      <td
+        className="jsx-1823102791 "
+      >
         2017-2018
       </td>
-      <td>
+      <td
+        className="jsx-1823102791"
+      >
         DET
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         48
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         7
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         17
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         24
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         -7
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         39
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         1
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         2
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         0
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         0
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         1
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         0
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         83
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         8.4
       </td>
     </tr>
-    <tr>
-      <td>
+    <tr
+      className="jsx-1823102791"
+    >
+      <td
+        className="jsx-1823102791 "
+      >
         2017-2018
       </td>
-      <td>
+      <td
+        className="jsx-1823102791"
+      >
         Grand Rapids Griffins
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         16
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         7
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         7
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         14
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         -5
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         34
       </td>
-      <td />
-      <td />
-      <td />
-      <td />
-      <td />
-      <td />
-      <td />
-      <td />
+      <td
+        className="jsx-1823102791 "
+      />
+      <td
+        className="jsx-1823102791 "
+      />
+      <td
+        className="jsx-1823102791 "
+      />
+      <td
+        className="jsx-1823102791 "
+      />
+      <td
+        className="jsx-1823102791 "
+      />
+      <td
+        className="jsx-1823102791 "
+      />
+      <td
+        className="jsx-1823102791 "
+      />
+      <td
+        className="jsx-1823102791 "
+      />
     </tr>
-    <tr>
-      <td>
+    <tr
+      className="jsx-1823102791"
+    >
+      <td
+        className="jsx-1823102791 "
+      >
         2018-2019
       </td>
-      <td>
+      <td
+        className="jsx-1823102791"
+      >
         DET
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         72
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         21
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         26
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         47
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         12
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         36
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         3
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         6
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         0
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         0
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         4
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         1
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         130
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         16.2
       </td>
     </tr>
-    <tr>
-      <td>
-        <strong>
+    <tr
+      className="jsx-1823102791"
+    >
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           Career
         </strong>
       </td>
-      <td />
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      />
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           127
         </strong>
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           28
         </strong>
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           43
         </strong>
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           71
         </strong>
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           4
         </strong>
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           75
         </strong>
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           4
         </strong>
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           8
         </strong>
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           0
         </strong>
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           0
         </strong>
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           5
         </strong>
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           1
         </strong>
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           216
         </strong>
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           13
         </strong>
       </td>

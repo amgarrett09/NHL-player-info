@@ -2,224 +2,449 @@
 
 exports[`GoalieTable should match snapshot 1`] = `
 <table
-  className="table is-narrow is-hoverable is-fullwidth"
+  className="jsx-1823102791 table is-narrow is-hoverable is-fullwidth"
 >
-  <thead>
-    <tr>
-      <th>
-        Season
+  <thead
+    className="jsx-1823102791"
+  >
+    <tr
+      className="jsx-1823102791"
+    >
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
+        >
+          Season
+        </button>
       </th>
-      <th>
+      <th
+        className="jsx-1823102791"
+      >
         Team
       </th>
-      <th>
-        <abbr
-          title="Games Played"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          GP
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Games Played"
+          >
+            GP
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Games Started"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          GS
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Games Played"
+          >
+            GS
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Wins"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          W
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Games Played"
+          >
+            W
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Losses"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          L
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Games Played"
+          >
+            L
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Ties"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          T
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Games Played"
+          >
+            T
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Overtime Losses"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          OTL
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Games Played"
+          >
+            OTL
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Shots Against"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          SA
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Games Played"
+          >
+            SA
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Goals Against"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          GA
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Games Played"
+          >
+            GA
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Goals Against Average"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          GAA
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Games Played"
+          >
+            GAA
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Saves"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          S
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Games Played"
+          >
+            S
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Save Percentage"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          S%
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Games Played"
+          >
+            S%
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Shutouts"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          SO
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Games Played"
+          >
+            SO
+          </abbr>
+        </button>
       </th>
-      <th>
-        <abbr
-          title="Minutes"
+      <th
+        className="jsx-1823102791"
+      >
+        <button
+          className="jsx-1823102791 sort-button"
+          onClick={[Function]}
+          type="button"
         >
-          MIN
-        </abbr>
+          <abbr
+            className="jsx-1823102791"
+            title="Games Played"
+          >
+            MIN
+          </abbr>
+        </button>
       </th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <td>
+  <tbody
+    className="jsx-1823102791"
+  >
+    <tr
+      className="jsx-1823102791"
+    >
+      <td
+        className="jsx-1823102791 "
+      >
         2018-2019
       </td>
-      <td>
+      <td
+        className="jsx-1823102791"
+      >
         PHI
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         30
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         29
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         16
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         12
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         0
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         1
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         948
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         77
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         2.79
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         871
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         0.919
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         0
       </td>
-      <td>
+      <td
+        className="jsx-1823102791 "
+      >
         1658:22
       </td>
     </tr>
-    <tr>
-      <td>
-        <strong>
+    <tr
+      className="jsx-1823102791"
+    >
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           Career
         </strong>
       </td>
-      <td />
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      />
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           30
         </strong>
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           29
         </strong>
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           16
         </strong>
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           12
         </strong>
       </td>
-      <td>
-        <strong />
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        />
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           1
         </strong>
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           948
         </strong>
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           77
         </strong>
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           2.78587
         </strong>
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           871
         </strong>
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           0.918776
         </strong>
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           0
         </strong>
       </td>
-      <td>
-        <strong>
+      <td
+        className="jsx-1823102791"
+      >
+        <strong
+          className="jsx-1823102791"
+        >
           1658:22
         </strong>
       </td>
