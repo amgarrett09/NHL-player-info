@@ -91,62 +91,62 @@ const GoalieTable = ({ stats, career }) => {
             </th>
             <th>
               <button type="button" className="sort-button" onClick={sortBy}>
-                <abbr title="Games Played">GS</abbr>
+                <abbr title="Games Started">GS</abbr>
               </button>
             </th>
             <th>
               <button type="button" className="sort-button" onClick={sortBy}>
-                <abbr title="Games Played">W</abbr>
+                <abbr title="Wins">W</abbr>
               </button>
             </th>
             <th>
               <button type="button" className="sort-button" onClick={sortBy}>
-                <abbr title="Games Played">L</abbr>
+                <abbr title="Losses">L</abbr>
               </button>
             </th>
             <th>
               <button type="button" className="sort-button" onClick={sortBy}>
-                <abbr title="Games Played">T</abbr>
+                <abbr title="Ties">T</abbr>
               </button>
             </th>
             <th>
               <button type="button" className="sort-button" onClick={sortBy}>
-                <abbr title="Games Played">OTL</abbr>
+                <abbr title="Overtime Losses">OTL</abbr>
               </button>
             </th>
             <th>
               <button type="button" className="sort-button" onClick={sortBy}>
-                <abbr title="Games Played">SA</abbr>
+                <abbr title="Shots Against">SA</abbr>
               </button>
             </th>
             <th>
               <button type="button" className="sort-button" onClick={sortBy}>
-                <abbr title="Games Played">GA</abbr>
+                <abbr title="Goals Against">GA</abbr>
               </button>
             </th>
             <th>
               <button type="button" className="sort-button" onClick={sortBy}>
-                <abbr title="Games Played">GAA</abbr>
+                <abbr title="Goals Against Average">GAA</abbr>
               </button>
             </th>
             <th>
               <button type="button" className="sort-button" onClick={sortBy}>
-                <abbr title="Games Played">S</abbr>
+                <abbr title="Saves">S</abbr>
               </button>
             </th>
             <th>
               <button type="button" className="sort-button" onClick={sortBy}>
-                <abbr title="Games Played">S%</abbr>
+                <abbr title="Save Percentage">S%</abbr>
               </button>
             </th>
             <th>
               <button type="button" className="sort-button" onClick={sortBy}>
-                <abbr title="Games Played">SO</abbr>
+                <abbr title="Shutouts">SO</abbr>
               </button>
             </th>
             <th>
               <button type="button" className="sort-button" onClick={sortBy}>
-                <abbr title="Games Played">MIN</abbr>
+                <abbr title="Time On Ice">MIN</abbr>
               </button>
             </th>
           </tr>
