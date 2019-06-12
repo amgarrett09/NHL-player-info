@@ -52,7 +52,7 @@ exports[`GoalieTable should match snapshot 1`] = `
         >
           <abbr
             className="jsx-1823102791"
-            title="Games Played"
+            title="Games Started"
           >
             GS
           </abbr>
@@ -68,7 +68,7 @@ exports[`GoalieTable should match snapshot 1`] = `
         >
           <abbr
             className="jsx-1823102791"
-            title="Games Played"
+            title="Wins"
           >
             W
           </abbr>
@@ -84,7 +84,7 @@ exports[`GoalieTable should match snapshot 1`] = `
         >
           <abbr
             className="jsx-1823102791"
-            title="Games Played"
+            title="Losses"
           >
             L
           </abbr>
@@ -100,7 +100,7 @@ exports[`GoalieTable should match snapshot 1`] = `
         >
           <abbr
             className="jsx-1823102791"
-            title="Games Played"
+            title="Ties"
           >
             T
           </abbr>
@@ -116,7 +116,7 @@ exports[`GoalieTable should match snapshot 1`] = `
         >
           <abbr
             className="jsx-1823102791"
-            title="Games Played"
+            title="Overtime Losses"
           >
             OTL
           </abbr>
@@ -132,7 +132,7 @@ exports[`GoalieTable should match snapshot 1`] = `
         >
           <abbr
             className="jsx-1823102791"
-            title="Games Played"
+            title="Shots Against"
           >
             SA
           </abbr>
@@ -148,7 +148,7 @@ exports[`GoalieTable should match snapshot 1`] = `
         >
           <abbr
             className="jsx-1823102791"
-            title="Games Played"
+            title="Goals Against"
           >
             GA
           </abbr>
@@ -164,7 +164,7 @@ exports[`GoalieTable should match snapshot 1`] = `
         >
           <abbr
             className="jsx-1823102791"
-            title="Games Played"
+            title="Goals Against Average"
           >
             GAA
           </abbr>
@@ -180,7 +180,7 @@ exports[`GoalieTable should match snapshot 1`] = `
         >
           <abbr
             className="jsx-1823102791"
-            title="Games Played"
+            title="Saves"
           >
             S
           </abbr>
@@ -196,7 +196,7 @@ exports[`GoalieTable should match snapshot 1`] = `
         >
           <abbr
             className="jsx-1823102791"
-            title="Games Played"
+            title="Save Percentage"
           >
             S%
           </abbr>
@@ -212,7 +212,7 @@ exports[`GoalieTable should match snapshot 1`] = `
         >
           <abbr
             className="jsx-1823102791"
-            title="Games Played"
+            title="Shutouts"
           >
             SO
           </abbr>
@@ -228,7 +228,7 @@ exports[`GoalieTable should match snapshot 1`] = `
         >
           <abbr
             className="jsx-1823102791"
-            title="Games Played"
+            title="Time On Ice"
           >
             MIN
           </abbr>
