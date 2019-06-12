@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import convertSeason from '../lib/convert-season';
 import teamAbbreviations from '../constants/constants';
@@ -56,6 +56,12 @@ const sortingFunctions = {
 const SkaterTable = ({ stats, career }) => {
   const [sortedStats, setSortedStats] = useState(stats);
   const [currentlySorted, setCurrentlySorted] = useState('');
+
+  // When props change, reset state
+  useEffect(() => {
+    setSortedStats(stats);
+    setCurrentlySorted('');
+  }, [stats]);
 
   // Sort the table by a particular stat when you click on the column's title.
   const sortBy = (e) => {
